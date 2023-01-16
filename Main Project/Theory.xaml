@@ -13,96 +13,11 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <ImageBrush ImageSource="Images/фон 1.jpg"/>
-        </Grid.Background>
-        <Label Grid.ColumnSpan="2" Content="Теория" HorizontalAlignment="Left" Margin="425,18,0,0" VerticalAlignment="Top" Height="70" Width="176" FontSize="48" FontFamily="Century Gothic" Background="{x:Null}">
-            <Label.Foreground>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FFB5AEAC"/>
-                    <GradientStop Color="#FFACC539" Offset="1"/>
-                </LinearGradientBrush>
-            </Label.Foreground>
-        </Label>
-        <TextBox x:Name="TextBoxTheory" HorizontalAlignment="Center" Height="484" Margin="0,93,0,0" TextWrapping="Wrap" Text="Ты, наверное, знаешь такие игры (например, домино), в которых выигравший может получить определенное число (выигранных) очков, а проигравший — штрафных очков. Если, например, игрок за одну игру выиграл 3 очка, а за вторую 5 очков, то общее число выигранных очков находим сложением: 3 + 5 = 8, или можно записать: ( + 3) + ( + 5)= +8. " VerticalAlignment="Top" Width="836" FontSize="36" BorderThickness="0" Background="{x:Null}" IsReadOnly="True" TextChanged="TextBox_TextChanged" Foreground="#FFD6FFD6" Grid.Column="1" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
-        <Button x:Name="ButtonNext" Grid.ColumnSpan="2" Content=">" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="595,587,0,0" VerticalAlignment="Top" Width="94" Height="96" Click="Click_NextButton" FontSize="48" RenderTransformOrigin="0.539,0.121" FontWeight="Bold" FontStyle="Italic" BorderBrush="{x:Null}" Foreground="White">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/button 2.png"/>
-            </Button.Background>
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="LightGray"/>
-                    <Setter Property="Template">
-
-                        <Setter.Value>
-
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGray"></Setter>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
-        <Button x:Name="ButtonPrevious" Grid.ColumnSpan="2" Content="&lt;" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="371,587,0,0" VerticalAlignment="Top" Width="94" Height="96" Click="Click_PreviousButton" FontSize="48" RenderTransformOrigin="0.539,0.121" FontWeight="Bold" FontStyle="Italic" Foreground="White" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/button 2.png"/>
-            </Button.Background>
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="LightGray"/>
-                    <Setter Property="Template">
-
-                        <Setter.Value>
-
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGray"></Setter>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
-        <TextBox x:Name="TextBoxPage" HorizontalAlignment="Center" Margin="0,606,0,0" TextWrapping="Wrap" Text="1/11" VerticalAlignment="Top" Width="98" FontSize="36" TextChanged="TextBoxPage_TextChanged" SelectionBrush="{x:Null}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" TextAlignment="Right" BorderThickness="0" IsReadOnly="True" Grid.Column="1"/>
-        <Button x:Name="ButtonPrevious_Copy" Grid.ColumnSpan="2" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" Width="75" Height="74" Click="Click_BackButton" FontSize="48" RenderTransformOrigin="0.539,0.121" FontWeight="Bold" FontStyle="Italic" Foreground="White" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/button back.png"/>
-            </Button.Background>
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="LightGray"/>
-                    <Setter Property="Template">
-
-                        <Setter.Value>
-
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGray"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
+        <Label Grid.ColumnSpan="2" Content="Теория" HorizontalAlignment="Left" Margin="425,18,0,0" VerticalAlignment="Top" Height="70" Width="176" FontSize="48" Background="{x:Null}"/>
+        <TextBox x:Name="TextBoxTheory" HorizontalAlignment="Center" Height="484" Margin="0,93,0,0" TextWrapping="Wrap" Text="Ты, наверное, знаешь такие игры (например, домино), в которых выигравший может получить определенное число (выигранных) очков, а проигравший — штрафных очков. Если, например, игрок за одну игру выиграл 3 очка, а за вторую 5 очков, то общее число выигранных очков находим сложением: 3 + 5 = 8, или можно записать: ( + 3) + ( + 5)= +8. " VerticalAlignment="Top" Width="836" FontSize="36" BorderThickness="0" Background="{x:Null}" IsReadOnly="True" TextChanged="TextBox_TextChanged" Foreground="Black" Grid.Column="1" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
+        <Button x:Name="ButtonNext" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content=">" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="595,587,0,0" VerticalAlignment="Top" Width="94" Height="94" Click="Click_NextButton" FontSize="48" RenderTransformOrigin="0.539,0.121" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button x:Name="ButtonPrevious" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="&lt;" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="371,587,0,0" VerticalAlignment="Top" Width="94" Height="94" Click="Click_PreviousButton" FontSize="48" RenderTransformOrigin="0.539,0.121" Foreground="White" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="TextBoxPage" HorizontalAlignment="Center" Margin="0,606,0,0" TextWrapping="Wrap" Text="1/11" VerticalAlignment="Top" Width="98" FontSize="36" TextChanged="TextBoxPage_TextChanged" SelectionBrush="{x:Null}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0C0000" TextAlignment="Right" BorderThickness="0" IsReadOnly="True" Grid.Column="1"/>
+        <Button x:Name="ButtonPreviousPage" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Назад" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" Width="110" Height="55" Click="Click_BackButton" FontSize="30" RenderTransformOrigin="0.539,0.121" Foreground="White" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

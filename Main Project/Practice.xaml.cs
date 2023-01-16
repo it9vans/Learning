@@ -94,6 +94,7 @@ namespace Main_Project
                     return $"{sl_first} + ({sl_second}) + {sl_third} =";
                 else if (sl_second > 0 && sl_third > 0)
                     return $"{sl_first} + {sl_second} + {sl_third} =";
+                else return "Попробуйте снова!";
             }
         }
 

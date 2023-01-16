@@ -13,114 +13,16 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/фон 1.jpg"/>
+            <ImageBrush/>
         </Grid.Background>
-        <Label Content="Практика" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" Height="69" Width="239" FontSize="48" FontFamily="Century Gothic" Background="{x:Null}" Grid.Column="1">
-            <Label.Foreground>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FFB5AEAC"/>
-                    <GradientStop Color="#FFACC539" Offset="1"/>
-                </LinearGradientBrush>
-            </Label.Foreground>
-        </Label>
-        <TextBox x:Name="TextBoxExercise" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="69" Margin="49,243,0,0" TextWrapping="Wrap" Text=" = " VerticalAlignment="Top" Width="499" FontSize="48" Background="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="Black" Foreground="White" TextChanged="TextBoxExercise_TextChanged" TextAlignment="Right" BorderThickness="0"/>
-        <TextBox x:Name="TextBoxExResult" HorizontalAlignment="Left" Height="75" Margin="548,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontSize="48" Grid.ColumnSpan="2" Foreground="White" Background="{x:Null}" TextAlignment="Center" BorderThickness="7" TextChanged="TextBoxExResult_TextChanged" SelectionBrush="{x:Null}"/>
-        <Button x:Name="ButtonCheck" Content="Проверить" HorizontalAlignment="Center" Margin="0,423,0,0" VerticalAlignment="Top" Width="326" Height="120" FontSize="48" Grid.Column="1" Foreground="White" Click="Click_CheckButton">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Background" Value="LightGray"/>
-                    <Setter Property="Template">
-
-                        <Setter.Value>
-
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGray"></Setter>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-            <Button.Background>
-                <ImageBrush ImageSource="Images/button 1.png" Stretch="Fill" TileMode="None">
-                    <ImageBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ImageBrush.RelativeTransform>
-                </ImageBrush>
-            </Button.Background>
+        <Label Content="Практика" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" Height="69" Width="239" FontSize="48" Background="{x:Null}" Grid.Column="1" Foreground="Black" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxExercise" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="69" Margin="49,243,0,0" TextWrapping="Wrap" Text=" = " VerticalAlignment="Top" Width="499" FontSize="48" Background="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="Black" Foreground="Black" TextChanged="TextBoxExercise_TextChanged" TextAlignment="Right" BorderThickness="0"/>
+        <TextBox x:Name="TextBoxExResult" HorizontalAlignment="Left" Height="75" Margin="548,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontSize="48" Grid.ColumnSpan="2" Foreground="#FF080000" Background="{x:Null}" TextAlignment="Center" BorderThickness="7" TextChanged="TextBoxExResult_TextChanged" SelectionBrush="{x:Null}" SelectionTextBrush="Black"/>
+        <Button x:Name="ButtonCheck" Style ="{StaticResource MainButtonTemplate}" HorizontalAlignment="Center" Margin="0,485,0,0" VerticalAlignment="Top" Width="326" Height="75" FontSize="35" Grid.Column="1" Foreground="White" Click="Click_CheckButton" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" Background="#FF1363DF" Content="Проверить">
         </Button>
-        <Button x:Name="ButtonNew" Content="Новый пример" HorizontalAlignment="Center" Margin="0,548,0,0" VerticalAlignment="Top" Width="402" Height="120" FontSize="48" Grid.Column="1" Foreground="White" Click="Click_NewExerciseButton">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="LightGray"/>
-                    <Setter Property="Template">
-
-                        <Setter.Value>
-
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGray"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/button 1.png" Stretch="Fill" TileMode="None">
-                    <ImageBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ImageBrush.RelativeTransform>
-                </ImageBrush>
-            </Button.Background>
+        <Button x:Name="ButtonNew" Style ="{StaticResource MainButtonTemplate}" Content="Новый пример" HorizontalAlignment="Center" Margin="0,591,0,0" VerticalAlignment="Top" Width="402" Height="77" FontSize="35" Grid.Column="1" Foreground="White" Click="Click_NewExerciseButton">
         </Button>
-        <Button x:Name="ButtonPrevious_Copy" Grid.ColumnSpan="2" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" Width="75" Height="74" Click="Click_BackButton" FontSize="48" RenderTransformOrigin="0.539,0.121" FontWeight="Bold" FontStyle="Italic" Foreground="White" BorderBrush="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="/Images/button back.png"/>
-            </Button.Background>
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="LightGray"/>
-                    <Setter Property="Template">
-
-                        <Setter.Value>
-
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="LightGray"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
+        <Button x:Name="ButtonBack" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Назад" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" Width="110" Height="55" Click="Click_BackButton" FontSize="30" RenderTransformOrigin="0.539,0.121" Foreground="White" BorderBrush="{x:Null}" FontFamily="Segoe UI"/>
         <Label x:Name="Message" Content="Верно!" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Foreground="#FF3CE026" FontSize="48" Grid.Column="1" Visibility="Hidden"/>
 
     </Grid>
