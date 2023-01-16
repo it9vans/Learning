@@ -27,16 +27,12 @@ namespace Main_Project
 
         private void Click_TheoryButton(object sender, RoutedEventArgs e)
         {
-            //this.Hide();
-            Theory theory = new Theory();
-            theory.Show();
+            NavigationService.Navigate(new TheoryPage());
         }
 
         private void Click_PracticeButton(object sender, RoutedEventArgs e)
         {
-            Practice practice = new Practice();
-            //this.Hide();
-            practice.Show();
+            
         }
     }
 }

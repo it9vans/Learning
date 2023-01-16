@@ -105,6 +105,9 @@
     <Compile Include="Theory.xaml.cs">
       <DependentUpon>Theory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TheoryPage.xaml.cs">
+      <DependentUpon>TheoryPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Theory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TheoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
