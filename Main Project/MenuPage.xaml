@@ -1,0 +1,30 @@
+﻿<Page x:Class="Main_Project.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Main_Project"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuPage">
+
+    <Grid Margin="0,0,-173,-182">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="71*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="206" Margin="616,229,0,0" VerticalAlignment="Top" Width="280" Grid.Column="1" Source="Images/163-1637078_mathematics-euclidean-vector-number-symbol-vector-mathematical-simbolos-matematicos.png" Grid.Row="1"/>
+        <Label Content="Сложение и вычитание&#xD;&#xA;  отрицательных чисел" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="122" Width="517" FontSize="40" Background="{x:Null}" Foreground="Black" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.RowSpan="2"/>
+        <Button x:Name="Button1" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Теория" HorizontalAlignment="Left" Margin="116,234,0,0" VerticalAlignment="Top" Width="260" Height="80" FontSize="36" Foreground="White" RenderTransformOrigin="0.485,0.556" BorderBrush="{x:Null}" Grid.Row="1">
+        </Button>
+        <Button x:Name="Button2" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Практика" HorizontalAlignment="Left" Margin="116,342,0,0" VerticalAlignment="Top" Width="260" Height="80" FontSize="36" Foreground="White" RenderTransformOrigin="0.485,0.556" BorderBrush="{x:Null}" Grid.Row="1">
+        </Button>
+    </Grid>
+</Page>

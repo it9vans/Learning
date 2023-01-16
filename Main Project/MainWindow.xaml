@@ -8,19 +8,7 @@
         ResizeMode="NoResize"
         Title="Сложение и вычитание отрицательных чисел" Height="750" Width="1050
         ">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <ImageBrush/>
-        </Grid.Background>
-        <Image HorizontalAlignment="Left" Height="206" Margin="616,293,0,0" VerticalAlignment="Top" Width="280" Grid.Column="1" Source="Images/163-1637078_mathematics-euclidean-vector-number-symbol-vector-mathematical-simbolos-matematicos.png"/>
-        <Label Content="Сложение и вычитание&#xD;&#xA;  отрицательных чисел" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="122" Width="517" FontSize="40" Background="{x:Null}" Foreground="Black" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button x:Name="Button1" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Теория" HorizontalAlignment="Left" Margin="116,298,0,0" VerticalAlignment="Top" Width="260" Height="80" FontSize="36" Foreground="White" RenderTransformOrigin="0.485,0.556" BorderBrush="{x:Null}" Click="Click_TheoryButton">
-        </Button>
-        <Button x:Name="Button2" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Практика" HorizontalAlignment="Left" Margin="116,406,0,0" VerticalAlignment="Top" Width="260" Height="80" FontSize="36" Foreground="White" RenderTransformOrigin="0.485,0.556" BorderBrush="{x:Null}" Click="Click_PracticeButton">
-        </Button>
-    </Grid>
+    
+    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
+    </Frame>
 </Window>

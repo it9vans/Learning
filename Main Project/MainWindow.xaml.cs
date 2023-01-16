@@ -7,6 +7,7 @@ namespace Main_Project
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Content = new MenuPage();
         }
 
         private void Click_TheoryButton(object sender, RoutedEventArgs e)
