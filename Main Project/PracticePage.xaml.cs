@@ -1,13 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace Main_Project
 {
-    public partial class Practice : Window
+    /// <summary>
+    /// Логика взаимодействия для PracticePage.xaml
+    /// </summary>
+    public partial class PracticePage : Page
     {
-        public Practice()
+        public PracticePage()
         {
             InitializeComponent();
         }
@@ -36,7 +49,7 @@ namespace Main_Project
                 {
                     sl_first = (short)rand.Next(-30, 30);
                     sl_second = (short)rand.Next(-30, 30);
-                  
+
                     if (sl_first > sl_second && sl_first >= 0)
                     {
                         if (sl_second > 0)
@@ -78,11 +91,11 @@ namespace Main_Project
                 short sl_first, sl_second, sl_third;
                 do
                 {
-                    sl_first    = (short)rand.Next(-30, 30);
-                    sl_second   = (short)rand.Next(-30, 30);
-                    sl_third    = (short)rand.Next(-30, 30);
+                    sl_first = (short)rand.Next(-30, 30);
+                    sl_second = (short)rand.Next(-30, 30);
+                    sl_third = (short)rand.Next(-30, 30);
                 }
-                while (sl_first >= 0 && sl_second >= 0 && sl_third >=0);                
+                while (sl_first >= 0 && sl_second >= 0 && sl_third >= 0);
 
                 result = (short)(sl_first + sl_second + sl_third);
 
@@ -100,9 +113,7 @@ namespace Main_Project
 
         private void Click_BackButton(object sender, RoutedEventArgs e)
         {
-            MainWindow mainwindow = new MainWindow();
-            this.Hide();
-            mainwindow.Show();
+            NavigationService.Navigate(new MenuPage());
         }
 
         private void Click_CheckButton(object sender, RoutedEventArgs e)
@@ -112,22 +123,22 @@ namespace Main_Project
             {
                 if (Convert.ToInt32(TextBoxExResult.Text) == result)
                 {
-                    Message.Content     = "Верно!";
-                    Message.Foreground  = Brushes.LightGreen;
-                    Message.Visibility  = Visibility.Visible;
+                    Message.Content = "Верно!";
+                    Message.Foreground = Brushes.LightGreen;
+                    Message.Visibility = Visibility.Visible;
                 }
                 else
                 {
-                    Message.Content     = "Неверно!";
-                    Message.Foreground  = Brushes.Red;
-                    Message.Visibility  = Visibility.Visible;
+                    Message.Content = "Неверно!";
+                    Message.Foreground = Brushes.Red;
+                    Message.Visibility = Visibility.Visible;
                 }
             }
             catch
             {
-                Message.Content     = "Возникла ошибка при вводе данных!";
-                Message.Foreground  = Brushes.Red;
-                Message.Visibility  = Visibility.Visible;
+                Message.Content = "Возникла ошибка при вводе данных!";
+                Message.Foreground = Brushes.Red;
+                Message.Visibility = Visibility.Visible;
             }
 
             if (TextBoxExResult.Text == "")

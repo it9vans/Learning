@@ -32,7 +32,7 @@ namespace Main_Project
 
         private void Click_PracticeButton(object sender, RoutedEventArgs e)
         {
-            
+            NavigationService.Navigate(new PracticePage());
         }
     }
 }

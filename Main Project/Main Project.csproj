@@ -99,11 +99,8 @@
     <Compile Include="MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Practice.xaml.cs">
-      <DependentUpon>Practice.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Theory.xaml.cs">
-      <DependentUpon>Theory.xaml</DependentUpon>
+    <Compile Include="PracticePage.xaml.cs">
+      <DependentUpon>PracticePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TheoryPage.xaml.cs">
       <DependentUpon>TheoryPage.xaml</DependentUpon>
@@ -124,11 +121,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Practice.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Theory.xaml">
+    <Page Include="PracticePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
