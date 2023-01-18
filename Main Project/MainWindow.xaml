@@ -6,9 +6,25 @@
         xmlns:local="clr-namespace:Main_Project"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Сложение и вычитание отрицательных чисел" Height="750" Width="1050
-        ">
-    
-    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
-    </Frame>
+        Title="Сложение и вычитание отрицательных чисел" Height="750" Width="1350">
+    <Grid>
+        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="297,0,1019,0">
+            <Canvas Name="svg5" Width="7" Height="277">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="0" Y="0"/>
+                </Canvas.RenderTransform>
+                <Canvas.Resources/>
+                <!--Unknown tag: sodipodi:namedview-->
+                <Canvas Name="layer1">
+                    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path857" Fill="#FFE6E6E6" StrokeThickness="0.0947739" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat">
+                        <Path.Data>
+                            <PathGeometry Figures="M 3.1905263 2.1732912 V 274.69877 c 0.04196 0.8493 1.313508 0.87001 1.313657 0 V 2.1297292 c -1.9e-4 -0.9896489 -1.31501 -1.0207459 -1.313657 0.04356 z" FillRule="NonZero"/>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+            </Canvas>
+        </Viewbox>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Width="1050" Margin="300,0,0,0" Navigated="MainFrame_Navigated"/>
+        <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" Width="300" Margin="0,0,1050,0" />
+    </Grid>
 </Window>
