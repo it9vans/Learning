@@ -24,7 +24,7 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Width="1050" Margin="300,0,0,0" Navigated="MainFrame_Navigated"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Width="1050" Margin="300,0,0,0"/>
         <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" Width="300" Margin="0,0,1050,0" />
     </Grid>
 </Window>
