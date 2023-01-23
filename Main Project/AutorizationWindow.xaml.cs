@@ -22,7 +22,7 @@ namespace Main_Project
         public AutorizationWindow()
         {
             InitializeComponent();
-            //MainFrame.Content = new MenuPage();
+            MainFrame.Content = new LoginPage();
         }
     }
 }

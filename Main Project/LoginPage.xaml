@@ -10,7 +10,10 @@
       Background="White">
 
     <Grid>
-        <TextBox HorizontalAlignment="Center" Margin="0,174,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="193" Height="51"/>
 
+        <TextBox x:Name="textbox_login" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
+        <TextBox x:Name="textbox_password" HorizontalAlignment="Left" Margin="204,225,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
+        <Button x:Name="buttonLogin" Style="{StaticResource MainButtonTemplate}" Content="Войти" HorizontalAlignment="Center" Margin="0,321,0,0" VerticalAlignment="Top" Height="49" Width="120" FontSize="20" RenderTransformOrigin="0.483,1.367" Click="buttonLogin_Click"/>
+        <Label Content="Математика. 6 класс." Margin="111,-24,111,270" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="27"/>
     </Grid>
 </Page>
