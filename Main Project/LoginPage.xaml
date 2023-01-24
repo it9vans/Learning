@@ -11,9 +11,38 @@
 
     <Grid>
 
-        <TextBox x:Name="textbox_login" HorizontalAlignment="Center" Margin="0,154,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
-        <TextBox x:Name="textbox_password" HorizontalAlignment="Left" Margin="204,225,0,0" TextWrapping="Wrap" Text="Пароль" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
-        <Button x:Name="buttonLogin" Style="{StaticResource MainButtonTemplate}" Content="Войти" HorizontalAlignment="Center" Margin="0,321,0,0" VerticalAlignment="Top" Height="49" Width="120" FontSize="20" RenderTransformOrigin="0.483,1.367" Click="buttonLogin_Click"/>
-        <Label Content="Математика. 6 класс." Margin="111,-24,111,270" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="27"/>
+        <TextBox x:Name="textbox_login" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
+        <TextBlock IsHitTestVisible="False" Text="Введите логин:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="204,153,0,0" Foreground="DarkGray" FontSize="17">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=textbox_login}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox x:Name="textbox_password" HorizontalAlignment="Center" Margin="0,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
+        <TextBlock IsHitTestVisible="False" Text="Введите пароль:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="204,226,0,0" Foreground="DarkGray" FontSize="17">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=textbox_password}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Button x:Name="buttonLogin" Style="{StaticResource MainButtonTemplate}" Content="Войти" HorizontalAlignment="Center" Margin="0,299,0,0" VerticalAlignment="Top" Height="49" Width="120" FontSize="20" RenderTransformOrigin="0.483,1.367" Click="buttonLogin_Click"/>
+        <Label Content="Математика. 6 класс." HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="25"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16">
+            <Hyperlink NavigateUri="RegistrationPage.xaml">Ещё не зарегистрировались?</Hyperlink>
+        </TextBlock>
+
+
     </Grid>
 </Page>

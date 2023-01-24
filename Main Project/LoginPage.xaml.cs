@@ -40,7 +40,7 @@ namespace Main_Project
                 MessageBox.Show("Неправильный логин/пароль. Попробуйте снова.");
             else
             {
-                //Application.Current.MainWindow.Close();
+                Application.Current.MainWindow.Hide();
                 MainWindow mainWindow= new MainWindow();
                 mainWindow.Show();
             }

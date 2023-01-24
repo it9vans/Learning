@@ -8,8 +8,6 @@
         ResizeMode="NoResize"
         Title="AutorizationWindow" Height="450" Width="600">
 
-    <Frame x:Name="MainFrame">
-
-    </Frame>
+    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
 </Window>
     
