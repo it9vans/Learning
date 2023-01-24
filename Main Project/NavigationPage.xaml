@@ -7,8 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="300"
       Title="NavigationPage">
-    
+
     <Grid Width="300" Height="750">
-        <Label Content="Ну типо меню" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="35" FontFamily="Segoe UI"/>
+        <TextBlock x:Name="textblockLogin" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" FontSize="35"/>
     </Grid>
 </Page>

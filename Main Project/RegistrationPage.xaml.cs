@@ -37,7 +37,7 @@ namespace Main_Project
         {
             string login = textbox_login.Text;
             string password = textbox_password.Text;
-            string queryСheck = $"select count(name_surname) from users where name_surname = '{login}';";
+            string queryСheck = $"select count(login) from users where login = '{login}';";
             string queryInsert = $"INSERT users VALUES ('{login}', '{password}');";
 
             dBlearningmath.openConnection();
@@ -50,7 +50,7 @@ namespace Main_Project
             {
                 commandInsert.ExecuteScalar();
                 Application.Current.MainWindow.Hide();
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(login);
                 mainWindow.Show();
             }
             dBlearningmath.closeConnection();

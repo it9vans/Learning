@@ -20,9 +20,12 @@ namespace Main_Project
     /// </summary>
     public partial class NavigationPage : Page
     {
-        public NavigationPage()
+        string login;
+        public NavigationPage(string login)
         {
             InitializeComponent();
+            this.login = login;
+            textblockLogin.Text = login;
         }
     }
 }

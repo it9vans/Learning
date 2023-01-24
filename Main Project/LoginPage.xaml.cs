@@ -29,7 +29,7 @@ namespace Main_Project
         {
             string login = textbox_login.Text;
             string password = textbox_password.Text;
-            string query = $"select count(name_surname) from users where name_surname = '{login}' and passw = '{password}';";
+            string query = $"select count(login) from users where login = '{login}' and passw = '{password}';";
 
 
 
@@ -41,7 +41,7 @@ namespace Main_Project
             else
             {
                 Application.Current.MainWindow.Hide();
-                MainWindow mainWindow= new MainWindow();
+                MainWindow mainWindow= new MainWindow(login);
                 mainWindow.Show();
             }
             dBlearningmath.closeConnection();
