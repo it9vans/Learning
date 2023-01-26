@@ -6,9 +6,11 @@
       xmlns:local="clr-namespace:Main_Project"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="300"
-      Title="NavigationPage">
+      Title="NavigationPage"
+      Background="White">
 
     <Grid Width="300" Height="750">
-        <TextBlock x:Name="textblockLogin" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" FontSize="35"/>
+        <Button x:Name="buttonAccount" Content="Button" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,624,0,0" VerticalAlignment="Top" Height="76" Width="234" FontSize="30"/>
+        <Image Source="Images/Learning Math logo1.png" HorizontalAlignment="Left" Margin="55,37,0,0" VerticalAlignment="Top" Width="190" Height="190" RenderTransformOrigin="1.27,0.665"/>
     </Grid>
 </Page>

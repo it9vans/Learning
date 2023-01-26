@@ -25,7 +25,7 @@ namespace Main_Project
         {
             InitializeComponent();
             this.login = login;
-            textblockLogin.Text = login;
+            buttonAccount.Content= login;
         }
     }
 }

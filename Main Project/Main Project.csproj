@@ -200,6 +200,9 @@
   <ItemGroup>
     <Resource Include="Images\button back.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Learning Math logo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

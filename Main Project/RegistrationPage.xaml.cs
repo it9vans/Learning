@@ -37,6 +37,7 @@ namespace Main_Project
         {
             string login = textbox_login.Text;
             string password = textbox_password.Text;
+            string passwordcheck = textbox_passwordcheck.Text;
             string queryСheck = $"select count(login) from users where login = '{login}';";
             string queryInsert = $"INSERT users VALUES ('{login}', '{password}');";
 
@@ -46,6 +47,10 @@ namespace Main_Project
 
             if (Convert.ToInt32(commandCheck.ExecuteScalar()) > 0)
                 MessageBox.Show("Логин уже используется!");
+            else if(password != passwordcheck)
+            {
+                MessageBox.Show("Пароли не совпадают");
+            }
             else
             {
                 commandInsert.ExecuteScalar();
