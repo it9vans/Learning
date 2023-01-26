@@ -6,6 +6,11 @@
       xmlns:local="clr-namespace:Main_Project"
       mc:Ignorable="d"
       Title="PracticePage" Height="750" Width="1050">
+    <Page.Resources>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -16,8 +21,8 @@
             <ImageBrush/>
         </Grid.Background>
         <Label Content="Практика" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" Height="69" Width="239" FontSize="48" Background="{x:Null}" Grid.Column="1" Foreground="Black" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="TextBoxExercise" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="69" Margin="49,243,0,0" TextWrapping="Wrap" Text=" = " VerticalAlignment="Top" Width="499" FontSize="48" Background="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="Black" Foreground="Black" TextChanged="TextBoxExercise_TextChanged" TextAlignment="Right" BorderThickness="0"/>
-        <TextBox x:Name="TextBoxExResult" HorizontalAlignment="Left" Height="75" Margin="548,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontSize="48" Grid.ColumnSpan="2" Foreground="#FF080000" Background="{x:Null}" TextAlignment="Center" BorderThickness="7" TextChanged="TextBoxExResult_TextChanged" SelectionBrush="{x:Null}" SelectionTextBrush="Black"/>
+        <TextBox x:Name="TextBoxExercise" Style="{StaticResource MainTextBoxTemplate}" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="69" Margin="49,243,0,0" TextWrapping="Wrap" Text=" = " VerticalAlignment="Top" Width="499" FontSize="48" Background="{x:Null}" SelectionBrush="{x:Null}" BorderBrush="Black" Foreground="Black" TextChanged="TextBoxExercise_TextChanged" TextAlignment="Right" BorderThickness="0"/>
+        <TextBox x:Name="TextBoxExResult" HorizontalAlignment="Left" Height="75" Margin="548,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="48" Grid.ColumnSpan="2" Foreground="#FF080000" Background="{x:Null}" TextAlignment="Center" BorderThickness="7" TextChanged="TextBoxExResult_TextChanged" SelectionBrush="{x:Null}" SelectionTextBrush="Black"/>
         <Button x:Name="ButtonCheck" Style ="{StaticResource MainButtonTemplate}" HorizontalAlignment="Center" Margin="0,485,0,0" VerticalAlignment="Top" Width="326" Height="75" FontSize="35" Grid.Column="1" Foreground="White" Click="Click_CheckButton" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" Background="#FF1363DF" Content="Проверить">
         </Button>
         <Button x:Name="ButtonNew" Style ="{StaticResource MainButtonTemplate}" Content="Новый пример" HorizontalAlignment="Center" Margin="0,591,0,0" VerticalAlignment="Top" Width="402" Height="77" FontSize="35" Grid.Column="1" Foreground="White" Click="Click_NewExerciseButton">

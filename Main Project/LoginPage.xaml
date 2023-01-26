@@ -11,7 +11,7 @@
 
     <Grid>
 
-        <TextBox x:Name="textbox_login" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
+        <TextBox x:Name="textbox_login" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="0,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
         <TextBlock IsHitTestVisible="False" Text="Введите логин:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="204,153,0,0" Foreground="DarkGray" FontSize="17">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
