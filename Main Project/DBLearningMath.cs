@@ -12,7 +12,7 @@ namespace Main_Project
 
         SqlConnection sqlConnection = new SqlConnection(@"Server = IVAN\SQLEXPRESS01; Database = LearningMath; Trusted_Connection = True;");
 
-        public void openConnection()
+        public void OpenConnection()
         {
             if(sqlConnection.State == System.Data.ConnectionState.Closed)
             {
@@ -20,7 +20,7 @@ namespace Main_Project
             }
         }
 
-        public void closeConnection()
+        public void CloseConnection()
         {
             if (sqlConnection.State == System.Data.ConnectionState.Open)
             {
@@ -28,7 +28,7 @@ namespace Main_Project
             }
         }
 
-        public SqlConnection getConnection()
+        public SqlConnection GetConnection()
         {
             return sqlConnection;
         }

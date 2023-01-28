@@ -152,7 +152,7 @@ namespace Main_Project
             }
         }
 
-        private void Click_BackButton(object sender, RoutedEventArgs e)
+        private void ClickBackButton(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MenuPage());
         }

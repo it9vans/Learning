@@ -25,16 +25,23 @@ namespace Main_Project
             InitializeComponent();
         }
 
-        private void buttonLogin_Click(object sender, RoutedEventArgs e)
+        void OnLoad(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+        private void ClickButtonLogin(object sender, RoutedEventArgs e)
         {
             string login = textbox_login.Text;
-            string password = textbox_password.Text;
+            string password = PasswordBoxMain.Password.ToString();
             string query = $"select count(login) from users where login = '{login}' and passw = '{password}';";
 
 
 
-            dBlearningmath.openConnection();
-            SqlCommand command = new SqlCommand(query, dBlearningmath.getConnection());
+            dBlearningmath.OpenConnection();
+            SqlCommand command = new SqlCommand(query, dBlearningmath.GetConnection());
 
             if (Convert.ToInt32(command.ExecuteScalar()) != 1)
                 MessageBox.Show("Неправильный логин/пароль. Попробуйте снова.");
@@ -44,7 +51,7 @@ namespace Main_Project
                 MainWindow mainWindow= new MainWindow(login);
                 mainWindow.Show();
             }
-            dBlearningmath.closeConnection();
+            dBlearningmath.CloseConnection();
         }
     }
 }

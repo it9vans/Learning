@@ -28,12 +28,12 @@ namespace Main_Project
             InitializeComponent();
         }
 
-        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        private void ClickButtonBack(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new LoginPage());
         }
 
-        private void buttonRegister_Click(object sender, RoutedEventArgs e)
+        private void ClickButtonRegister(object sender, RoutedEventArgs e)
         {
             string login = textbox_login.Text;
             string password = textbox_password.Text;
@@ -41,9 +41,9 @@ namespace Main_Project
             string queryСheck = $"select count(login) from users where login = '{login}';";
             string queryInsert = $"INSERT users VALUES ('{login}', '{password}');";
 
-            dBlearningmath.openConnection();
-            SqlCommand commandCheck = new SqlCommand(queryСheck, dBlearningmath.getConnection());
-            SqlCommand commandInsert = new SqlCommand(queryInsert, dBlearningmath.getConnection());
+            dBlearningmath.OpenConnection();
+            SqlCommand commandCheck = new SqlCommand(queryСheck, dBlearningmath.GetConnection());
+            SqlCommand commandInsert = new SqlCommand(queryInsert, dBlearningmath.GetConnection());
 
             if (Convert.ToInt32(commandCheck.ExecuteScalar()) > 0)
                 MessageBox.Show("Логин уже используется!");
@@ -58,7 +58,7 @@ namespace Main_Project
                 MainWindow mainWindow = new MainWindow(login);
                 mainWindow.Show();
             }
-            dBlearningmath.closeConnection();
+            dBlearningmath.CloseConnection();
         }
     }
 }

@@ -25,12 +25,12 @@ namespace Main_Project
             InitializeComponent();
         }
 
-        private void Click_TheoryButton(object sender, RoutedEventArgs e)
+        private void ClickButtonTheory(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new TheoryPage());
         }
 
-        private void Click_PracticeButton(object sender, RoutedEventArgs e)
+        private void ClickButtonPractice(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PracticePage());
         }

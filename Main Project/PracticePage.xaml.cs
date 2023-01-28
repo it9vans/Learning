@@ -37,7 +37,7 @@ namespace Main_Project
 
         short result;
 
-        public string CreatingExercise()
+        public string CreateExercise()
         {
             Random rand = new Random();
 
@@ -111,12 +111,12 @@ namespace Main_Project
             }
         }
 
-        private void Click_BackButton(object sender, RoutedEventArgs e)
+        private void ClickBackButton(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MenuPage());
         }
 
-        private void Click_CheckButton(object sender, RoutedEventArgs e)
+        private void ClickCheckButton(object sender, RoutedEventArgs e)
         {
 
             try
@@ -124,7 +124,7 @@ namespace Main_Project
                 if (Convert.ToInt32(TextBoxExResult.Text) == result)
                 {
                     Message.Content = "Верно!";
-                    Message.Foreground = Brushes.LightGreen;
+                    Message.Foreground = Brushes.Green;
                     Message.Visibility = Visibility.Visible;
                 }
                 else
@@ -150,10 +150,10 @@ namespace Main_Project
 
         }
 
-        private void Click_NewExerciseButton(object sender, RoutedEventArgs e)
+        private void ClickNewExerciseButton(object sender, RoutedEventArgs e)
         {
             TextBoxExResult.Text = ""; Message.Visibility = Visibility.Collapsed;
-            TextBoxExercise.Text = CreatingExercise();
+            TextBoxExercise.Text = CreateExercise();
         }
     }
 }
