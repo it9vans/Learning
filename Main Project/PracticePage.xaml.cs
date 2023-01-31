@@ -129,17 +129,13 @@ namespace Main_Project
                 {
                     if (Convert.ToInt32(resultTextBox.Text) == result)
                     {
-                        messageLabel.Content = "Верно!";
-                        messageLabel.Foreground = Brushes.Green;
-                        messageLabel.Visibility = Visibility.Visible;
+                        UpdateMessageBox("Верно!", true);
                         completedTaskNumber++;
                         UpdateIsEnabledOfTextBoxResultAndButtonCheck(false);
                     }
                     else
                     {
-                        messageLabel.Content = "Неверно!";
-                        messageLabel.Foreground = Brushes.Red;
-                        messageLabel.Visibility = Visibility.Visible;
+                        UpdateMessageBox("Неверно!", false);
                         UpdateIsEnabledOfTextBoxResultAndButtonCheck(false);
                     }
                 }
@@ -150,16 +146,12 @@ namespace Main_Project
             }
             catch
             {
-                messageLabel.Content = "Возникла ошибка при вводе данных!";
-                messageLabel.Foreground = Brushes.Red;
-                messageLabel.Visibility = Visibility.Visible;
+                UpdateMessageBox("Возникла ошибка при вводе данных!", false);
             }
 
             if (resultTextBox.Text == "")
                 {
-                    messageLabel.Content = "Данные не введены";
-                    messageLabel.Foreground = Brushes.Red;
-                    messageLabel.Visibility = Visibility.Visible;
+                    UpdateMessageBox("Данные не введены", false);
                 }
             
         }
@@ -183,8 +175,6 @@ namespace Main_Project
                 EndTest();
             }
         }
-
-
 
         private void UpdateTaskNumberTextBlock()
         {
@@ -225,6 +215,22 @@ namespace Main_Project
             dBlearningmath.CloseConnection();
 
             completedTaskNumber = 0;
+        }
+
+        private void UpdateMessageBox(string message, bool messageType)
+        {
+            if(messageType)
+            {
+                messageLabel.Content = message;
+                messageLabel.Foreground = Brushes.Green;
+                messageLabel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                messageLabel.Content = message;
+                messageLabel.Foreground = Brushes.Red;
+                messageLabel.Visibility = Visibility.Visible;
+            }
         }
     }
 }
