@@ -9,7 +9,7 @@ namespace Main_Project
         public MainWindow(string login)
         {
             InitializeComponent();
-            MainFrame.Content = new MenuPage();
+            MainFrame.Content = new MenuPage(login);
             NavigationFrame.Content = new NavigationPage(login);
             this.login = login;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,17 +16,20 @@ using System.Windows.Shapes;
 
 namespace Main_Project
 {
-    /// <summary>
-    /// Логика взаимодействия для PracticePage.xaml
-    /// </summary>
     public partial class PracticePage : Page
     {
+        DBLearningMath dBlearningmath = new DBLearningMath();
+
+        string login;
         private byte taskNumber = 0, completedTaskNumber = 0;
         private short result;
+        bool isTestActive= false;
 
-        public PracticePage()
+        public PracticePage(string login)
         {
             InitializeComponent();
+            this.login = login;
+            newExerciseButton.Content = "Начать тест";
         }
 
         private void TextBoxExercise_TextChanged(object sender, TextChangedEventArgs e)
@@ -114,7 +118,7 @@ namespace Main_Project
 
         private void ClickBackButton(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MenuPage());
+            NavigationService.Navigate(new MenuPage(login));
         }
 
         private void ClickCheckButton(object sender, RoutedEventArgs e)
@@ -123,25 +127,25 @@ namespace Main_Project
             {
                 if (taskNumber < 10)
                 {
-                    if (Convert.ToInt32(TextBoxResult.Text) == result)
+                    if (Convert.ToInt32(resultTextBox.Text) == result)
                     {
                         messageLabel.Content = "Верно!";
                         messageLabel.Foreground = Brushes.Green;
                         messageLabel.Visibility = Visibility.Visible;
                         completedTaskNumber++;
-                        updateIsEnabledOfTextBoxResultAndButtonCheck(false);
+                        UpdateIsEnabledOfTextBoxResultAndButtonCheck(false);
                     }
                     else
                     {
                         messageLabel.Content = "Неверно!";
                         messageLabel.Foreground = Brushes.Red;
                         messageLabel.Visibility = Visibility.Visible;
-                        updateIsEnabledOfTextBoxResultAndButtonCheck(false);
+                        UpdateIsEnabledOfTextBoxResultAndButtonCheck(false);
                     }
                 }
                 else
                 {
-                        MessageBox.Show("Вы уже прошли тест!");
+                    EndTest();
                 }
             }
             catch
@@ -151,7 +155,7 @@ namespace Main_Project
                 messageLabel.Visibility = Visibility.Visible;
             }
 
-            if (TextBoxResult.Text == "")
+            if (resultTextBox.Text == "")
                 {
                     messageLabel.Content = "Данные не введены";
                     messageLabel.Foreground = Brushes.Red;
@@ -162,20 +166,27 @@ namespace Main_Project
 
         private void ClickNewExerciseButton(object sender, RoutedEventArgs e)
         {
-            updateIsEnabledOfTextBoxResultAndButtonCheck(true);
+            if(!isTestActive)
+            {
+                isTestActive= true;
+                newExerciseButton.Content = "Новый пример";
+            }
+            UpdateIsEnabledOfTextBoxResultAndButtonCheck(true);
             if (taskNumber < 10)
             {
-                TextBoxResult.Text = ""; messageLabel.Visibility = Visibility.Collapsed;
-                updateTaskNumberTextBlock();
-                TextBoxExercise.Text = CreateExercise();
+                resultTextBox.Text = ""; messageLabel.Visibility = Visibility.Collapsed;
+                UpdateTaskNumberTextBlock();
+                exerciseTextBox.Text = CreateExercise();
             }
             else
             {
-                MessageBox.Show($"Вы завершили тест, выполнив заданий: {completedTaskNumber}");
+                EndTest();
             }
         }
 
-        private void updateTaskNumberTextBlock()
+
+
+        private void UpdateTaskNumberTextBlock()
         {
             if (taskNumber < 10)
             {
@@ -183,18 +194,37 @@ namespace Main_Project
                 taskNumberTextBlock.Text = $"Задание {taskNumber}/10";
             }
         }
-        private void updateIsEnabledOfTextBoxResultAndButtonCheck(bool isEnabled)
+
+        private void UpdateIsEnabledOfTextBoxResultAndButtonCheck(bool isEnabled)
         {
             if(isEnabled)
             {
                 ButtonCheck.IsEnabled = true;
-                TextBoxResult.IsEnabled = true;
+                resultTextBox.IsEnabled = true;
             }
             else
             {
                 ButtonCheck.IsEnabled = false;
-                TextBoxResult.IsEnabled = false;
+                resultTextBox.IsEnabled = false;
             }
+        }
+
+        private void EndTest()
+        {
+            isTestActive = false;
+            MessageBox.Show($"Вы завершили тест, выполнив заданий: {completedTaskNumber}");
+            taskNumber = 0;
+            taskNumberTextBlock.Text = $"Задание 0/10";
+            newExerciseButton.Content = "Начать тест";
+            exerciseTextBox.Text = "";
+
+            string createResultQuery = $"INSERT results VALUES ((SELECT user_id from users WHERE login='{login}'), 'Сложение и вычитание отрицательных чисел', '{completedTaskNumber}/10')";
+            dBlearningmath.OpenConnection();
+            SqlCommand commandResultInsert = new SqlCommand(createResultQuery, dBlearningmath.GetConnection());
+            commandResultInsert.ExecuteScalar();
+            dBlearningmath.CloseConnection();
+
+            completedTaskNumber = 0;
         }
     }
 }

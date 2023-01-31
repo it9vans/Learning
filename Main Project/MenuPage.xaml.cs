@@ -20,19 +20,22 @@ namespace Main_Project
     /// </summary>
     public partial class MenuPage : Page
     {
-        public MenuPage()
+        string login;
+
+        public MenuPage(string login)
         {
             InitializeComponent();
+            this.login = login;
         }
 
         private void ClickButtonTheory(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new TheoryPage());
+            NavigationService.Navigate(new TheoryPage(login));
         }
 
         private void ClickButtonPractice(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PracticePage());
+            NavigationService.Navigate(new PracticePage(login));
         }
     }
 }

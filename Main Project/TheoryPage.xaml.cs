@@ -20,9 +20,12 @@ namespace Main_Project
     /// </summary>
     public partial class TheoryPage : Page
     {
-        public TheoryPage()
+        string login;
+
+        public TheoryPage(string login)
         {
             InitializeComponent();
+            this.login = login;
         }
 
         short page_count = 1;
@@ -154,7 +157,7 @@ namespace Main_Project
 
         private void ClickBackButton(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MenuPage());
+            NavigationService.Navigate(new MenuPage(login));
         }
     }
 }

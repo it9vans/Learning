@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Main_Project
 {
-    /// <summary>
-    /// Логика взаимодействия для RegistrationPage.xaml
-    /// </summary>
     public partial class RegistrationPage : Page
     {
         DBLearningMath dBlearningmath = new DBLearningMath();
