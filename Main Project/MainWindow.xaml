@@ -9,7 +9,7 @@
         Title="Сложение и вычитание отрицательных чисел" Height="750" Width="1350"
         WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="297,0,1019,0">
+        <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Margin="285,0,1019,0">
             <Canvas Name="svg5" Width="7" Height="277">
                 <Canvas.RenderTransform>
                     <TranslateTransform X="0" Y="0"/>
@@ -26,6 +26,10 @@
             </Canvas>
         </Viewbox>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Width="1050" Margin="300,0,0,0"/>
-        <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" Width="300" Margin="0,0,1050,0" />
+        <Button x:Name="buttonAccount" Content="Button" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Left" Margin="33,608,0,0" VerticalAlignment="Top" Height="76" Width="234" FontSize="30"/>
+        <Button x:Name="buttonResults" Content="Результаты" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Left" Margin="33,502,0,0" VerticalAlignment="Top" Height="76" Width="234" FontSize="30" Click="ClickButtonResults"/>
+        <Border Margin="54,23,1112,526" CornerRadius="15" BorderThickness="1">
+            <Image Source="Images/Learning Math logo1.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="184" Height="184" RenderTransformOrigin="1.27,0.665"/>
+        </Border>
     </Grid>
 </Window>

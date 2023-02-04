@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Main_Project"
       mc:Ignorable="d"
-      Title="PracticePage" Height="750" Width="1050"
-      Background="White">
+      Title="PracticePage" Height="750" Width="1050">
     <Page.Resources>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
