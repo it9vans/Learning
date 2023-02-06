@@ -36,7 +36,7 @@ namespace Main_Project
             string password = textbox_password.Text;
             string passwordcheck = textbox_passwordcheck.Text;
             string queryСheck = $"select count(login) from users where login = '{login}';";
-            string queryInsert = $"INSERT users VALUES ('{login}', '{password}');";
+            string queryInsert = $"INSERT users VALUES ('{login}', '{password}', 'student');";
 
             dBlearningmath.OpenConnection();
             SqlCommand commandCheck = new SqlCommand(queryСheck, dBlearningmath.GetConnection());

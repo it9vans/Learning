@@ -10,7 +10,7 @@ namespace Main_Project
     internal class DBLearningMath
     {
 
-        SqlConnection sqlConnection = new SqlConnection(@"Server = IVAN\SQLEXPRESS01; Database = LearningMath; Trusted_Connection = True;");
+        SqlConnection sqlConnection = new SqlConnection(@"Server = I9-PC\SQLEXPRESS; Database = LearningMath; Trusted_Connection = True;");
 
         public void OpenConnection()
         {
