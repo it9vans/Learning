@@ -9,8 +9,17 @@ namespace Main_Project
 {
     internal class DBLearningMath
     {
+        static private string dbName;
 
-        SqlConnection sqlConnection = new SqlConnection(@"Server = I9-PC\SQLEXPRESS; Database = LearningMath; Trusted_Connection = True;");
+        static DBLearningMath()
+        {
+            if(Environment.MachineName == "IVAN")
+                dbName = @"IVAN\SQLEXPRESS01";
+            else
+                dbName= @"I9-PC\SQLEXPRESS";
+        }
+
+        SqlConnection sqlConnection = new SqlConnection($@"Server = {dbName}; Database = LearningMath; Trusted_Connection = True;");
 
         public void OpenConnection()
         {
