@@ -20,15 +20,13 @@ namespace Main_Project
     {
         DBLearningMath dBlearningmath = new DBLearningMath();
 
-        string login;
         private byte taskNumber = 0, completedTaskNumber = 0;
         private short result;
         bool isTestActive= false;
 
-        public PracticePage(string login)
+        public PracticePage()
         {
             InitializeComponent();
-            this.login = login;
             newExerciseButton.Content = "Начать тест";
         }
 
@@ -118,7 +116,7 @@ namespace Main_Project
 
         private void ClickBackButton(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MenuPage(login));
+            NavigationService.Navigate(new MenuPage());
         }
 
         private void ClickCheckButton(object sender, RoutedEventArgs e)
@@ -208,7 +206,7 @@ namespace Main_Project
             newExerciseButton.Content = "Начать тест";
             exerciseTextBox.Text = "";
 
-            string createResultQuery = $"INSERT results VALUES ((SELECT user_id from users WHERE login='{login}'), 'Сложение и вычитание отрицательных чисел', '{completedTaskNumber}/10')";
+            string createResultQuery = $"INSERT results VALUES ((SELECT user_id from users WHERE login='{Account.login}'), 'Сложение и вычитание отрицательных чисел', {completedTaskNumber})";
             dBlearningmath.OpenConnection();
             SqlCommand commandResultInsert = new SqlCommand(createResultQuery, dBlearningmath.GetConnection());
             commandResultInsert.ExecuteScalar();

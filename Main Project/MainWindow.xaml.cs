@@ -5,14 +5,11 @@ namespace Main_Project
 {
     public partial class MainWindow : Window
     {
-        string login;
-
-        public MainWindow(string login)
+        public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new MenuPage(login);
-            this.login = login;
-            buttonAccount.Content = login;
+            MainFrame.Content = new MenuPage();
+            buttonAccount.Content = Account.login;
         }
 
         private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
@@ -22,7 +19,7 @@ namespace Main_Project
 
         private void ClickButtonResults(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new ResultsPage(login);
+            MainFrame.Content = new ResultsPage();
         }
     }
 }

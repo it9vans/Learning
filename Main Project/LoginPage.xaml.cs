@@ -36,19 +36,22 @@ namespace Main_Project
         {
             string login = textbox_login.Text;
             string password = PasswordBoxMain.Password.ToString();
-            string query = $"select count(login) from users where login = '{login}' and passw = '{password}';";
-
+            string loginQuery = $"select count(login) from users where login = '{login}' and passw = '{password}';";
+            string accTypeQuery = $"select acc_type from users where login = '{login}';";
 
 
             dBlearningmath.OpenConnection();
-            SqlCommand command = new SqlCommand(query, dBlearningmath.GetConnection());
+            SqlCommand command = new SqlCommand(loginQuery, dBlearningmath.GetConnection());
 
             if (Convert.ToInt32(command.ExecuteScalar()) != 1)
                 MessageBox.Show("Неправильный логин/пароль. Попробуйте снова.");
             else
             {
+                command.CommandText = accTypeQuery;
+                Account.login = login;
+                Account.acc_type = Convert.ToString(command.ExecuteScalar());
                 Application.Current.MainWindow.Hide();
-                MainWindow mainWindow= new MainWindow(login);
+                MainWindow mainWindow= new MainWindow();
                 mainWindow.Show();
             }
             dBlearningmath.CloseConnection();

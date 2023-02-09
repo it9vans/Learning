@@ -52,7 +52,7 @@ namespace Main_Project
             {
                 commandInsert.ExecuteScalar();
                 Application.Current.MainWindow.Hide();
-                MainWindow mainWindow = new MainWindow(login);
+                MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
             }
             dBlearningmath.CloseConnection();
