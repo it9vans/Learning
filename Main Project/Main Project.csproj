@@ -107,9 +107,6 @@
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
-    <Compile Include="NavigationPage.xaml.cs">
-      <DependentUpon>NavigationPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PracticePage.xaml.cs">
       <DependentUpon>PracticePage.xaml</DependentUpon>
     </Compile>
@@ -143,10 +140,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="NavigationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

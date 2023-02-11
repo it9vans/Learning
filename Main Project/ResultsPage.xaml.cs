@@ -38,7 +38,12 @@ namespace Main_Project
         public void ResultsUpdate()
         {
             string login_check_query = $"SELECT COUNT(login) FROM users WHERE login = '{Account.login}'";
-            string stats_query = $"SELECT res_id AS '№', theme AS 'Тема', score AS 'Результат' FROM results WHERE stud_id = (SELECT user_id FROM users WHERE login = '{Account.login}')";
+            string stats_query;
+            if (Account.acc_type == "student")
+            {
+                stats_query = $"SELECT res_id AS '№', theme AS 'Тема', score AS 'Результат' FROM results WHERE stud_id = (SELECT user_id FROM users WHERE login = '{Account.login}')";
+            }
+            else stats_query = $"SELECT res_id AS '№', login as 'Логин'theme AS 'Тема', score AS 'Результат' FROM results JOIN users ON results.stud_id=users.user_id;";
 
             dBLearningMath.OpenConnection();
 
