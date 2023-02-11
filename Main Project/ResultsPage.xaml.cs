@@ -43,7 +43,7 @@ namespace Main_Project
             {
                 stats_query = $"SELECT res_id AS '№', theme AS 'Тема', score AS 'Результат' FROM results WHERE stud_id = (SELECT user_id FROM users WHERE login = '{Account.login}')";
             }
-            else stats_query = $"SELECT res_id AS '№', login as 'Логин'theme AS 'Тема', score AS 'Результат' FROM results JOIN users ON results.stud_id=users.user_id;";
+            else stats_query = $"SELECT res_id AS '№', login as 'Логин', theme AS 'Тема', score AS 'Результат' FROM results JOIN users ON results.stud_id=users.user_id;";
 
             dBLearningMath.OpenConnection();
 
@@ -57,6 +57,7 @@ namespace Main_Project
                 DataTable dataTable = new DataTable("Статистика");
                 statsDataAdapter.Fill(dataTable);
                 resultsDataGrid.ItemsSource = dataTable.DefaultView;
+                //resultsDataGrid.Columns.Width = 50;
             }
 
             else

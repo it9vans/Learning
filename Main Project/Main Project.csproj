@@ -204,6 +204,9 @@
   <ItemGroup>
     <Resource Include="Images\Learning Math logo1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\LearningApp database creating.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
