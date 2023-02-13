@@ -10,8 +10,8 @@
       Background="White">
 
     <Grid>
-        <TextBox x:Name="textbox_login" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="0,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
-        <TextBlock IsHitTestVisible="False" Text="Введите логин:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="204,129,0,0" Foreground="DarkGray" FontSize="17">
+        <TextBox x:Name="textbox_login" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="65,101,343,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
+        <TextBlock IsHitTestVisible="False" Text="Введите логин:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65,114,0,0" Foreground="DarkGray" FontSize="17">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -23,8 +23,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <TextBox x:Name="textbox_password" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="0,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="50"/>
-        <TextBlock IsHitTestVisible="False" Text="Введите пароль:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="204,195,0,0" Foreground="DarkGray" FontSize="17">
+        <TextBox x:Name="textbox_password" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="65,176,343,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="50"/>
+        <TextBlock IsHitTestVisible="False" Text="Введите пароль:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65,187,0,0" Foreground="DarkGray" FontSize="17">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -36,8 +36,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <TextBox x:Name="textbox_passwordcheck" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="0,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="50"/>
-        <TextBlock IsHitTestVisible="False" Text="Повторите пароль:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="204,260,0,0" Foreground="DarkGray" FontSize="17">
+        <TextBox x:Name="textbox_passwordcheck" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="65,253,343,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="50"/>
+        <TextBlock IsHitTestVisible="False" Text="Повторите пароль:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65,265,0,0" Foreground="DarkGray" FontSize="17">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -49,8 +49,49 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Button x:Name="ButtonRegister" Style="{StaticResource MainButtonTemplate}" Content="Зарегистрироваться" HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" Height="60" Width="228" FontSize="20" RenderTransformOrigin="0.483,1.367" Click="ClickButtonRegister"/>
+
+        <TextBox x:Name="textbox_surname" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="344,101,64,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
+        <TextBlock IsHitTestVisible="False" Text="Введите фамилию:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="344,114,0,0" Foreground="DarkGray" FontSize="17">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=textbox_surname}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox x:Name="textbox_firstName" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="344,175,64,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51" RenderTransformOrigin="0.604,0.843"/>
+        <TextBlock IsHitTestVisible="False" Text="Введите Имя:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="353,187,0,0" Foreground="DarkGray" FontSize="17">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=textbox_firstName}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox x:Name="textbox_secondName" Style="{StaticResource MainTextBoxTemplate}" HorizontalAlignment="Center" Margin="344,252,64,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="17" FontFamily="Segoe UI" Width="192" Height="51"/>
+        <TextBlock IsHitTestVisible="False" Text="Введите отчество:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="344,265,0,0" Foreground="DarkGray" FontSize="17">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=textbox_secondName}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <Button x:Name="ButtonRegister" Style="{StaticResource MainButtonTemplate}" Content="Зарегистрироваться" HorizontalAlignment="Center" Margin="187,373,185,0" VerticalAlignment="Top" Height="60" Width="228" FontSize="20" RenderTransformOrigin="0.483,1.367" Click="ClickButtonRegister"/>
         <Button x:Name="ButtonBack" Style="{StaticResource MainButtonTemplate}" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="40" Width="67" FontSize="15" RenderTransformOrigin="0.483,1.367" Click="ClickButtonBack"/>
-        <Label Content="Регистрация" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="55" Width="176" FontSize="25"/>
+        <Label Content="Регистрация" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="212,12,212,0" VerticalAlignment="Top" Height="55" Width="176" FontSize="25"/>
     </Grid>
 </Page>

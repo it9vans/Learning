@@ -5,6 +5,9 @@ CREATE TABLE users
 	login varchar(50) NOT NULL,
 	passw varchar(20) NOT NULL,
 	acc_type varchar(20) NOT NULL,
+	firstName varchar(20) NOT NULL,
+	secondName varchar(50) NOT NULL,
+	surname varchar(50) NOT NULL,
 	PRIMARY KEY (user_id)
 );
 
@@ -18,11 +21,11 @@ CREATE TABLE results
 	FOREIGN KEY (stud_id) REFERENCES users (user_id)
 );
 
-INSERT users VALUES ('kesha', 'pass', 'student');
-INSERT users VALUES ('kepka', '123', 'student');
-INSERT users VALUES ('misha', '123', 'student');
-INSERT users VALUES ('aleks', '1234', 'teacher');
-INSERT users VALUES ('admin', 'admin', 'admin');
+INSERT users VALUES ('kesha', 'pass', 'student', 'Алексей', 'Степанович', 'Мамедов');
+INSERT users VALUES ('kepka', '123', 'student', 'Иван', 'Степанович', 'Саубуров');
+INSERT users VALUES ('misha', '123', 'student', 'Евгений', 'Степанович', 'Бельников');
+INSERT users VALUES ('aleks', '1234', 'teacher', 'Тимофей', 'Степанович', 'Моментов');
+INSERT users VALUES ('admin', 'admin', 'admin', 'Админ', 'Админович', 'Админ');
 INSERT results VALUES (1, 'Сложение и вычитание отрицательных чисел', 7);
 INSERT results VALUES (1, 'Сложение и вычитание отрицательных чисел', 2);
 INSERT results VALUES (1, 'Сложение и вычитание отрицательных чисел', 8);

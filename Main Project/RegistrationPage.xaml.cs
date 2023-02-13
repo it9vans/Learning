@@ -35,8 +35,11 @@ namespace Main_Project
             string login = textbox_login.Text;
             string password = textbox_password.Text;
             string passwordcheck = textbox_passwordcheck.Text;
+            string surname = textbox_surname.Text;
+            string firstName = textbox_firstName.Text;
+            string secondName = textbox_secondName.Text;
             string queryСheck = $"select count(login) from users where login = '{login}';";
-            string queryInsert = $"INSERT users VALUES ('{login}', '{password}', 'student');";
+            string queryInsert = $"INSERT users VALUES ('{login}', '{password}', 'student', '{surname}', '{firstName}', '{secondName}');";
 
             dBlearningmath.OpenConnection();
             SqlCommand commandCheck = new SqlCommand(queryСheck, dBlearningmath.GetConnection());
@@ -51,6 +54,7 @@ namespace Main_Project
             else
             {
                 commandInsert.ExecuteScalar();
+                Account.login = login;
                 Application.Current.MainWindow.Hide();
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
