@@ -8,16 +8,16 @@
         ResizeMode="CanResize"
         Title="Сложение и вычитание отрицательных чисел" Height="750" MinHeight="650" Width="1350" MinWidth="900"
         WindowStartupLocation = "CenterScreen">
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="136*"/>
             <ColumnDefinition Width="539*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" CornerRadius="15" Background="#f6f6f6"/>
-        <Image Source="Images/Learning Math logo1.png" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1.27,0.665" Height="227" Width="228" Margin="0,30,0,0"/>
+        <Border Grid.Column="0" CornerRadius="15" Background="#f4f4f4" Margin="10,10,6,10"/>
+        <Image Source="Images/Learning Math logo1.png" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1.27,0.665" Height="154" Width="152" Margin="0,30,0,0"/>
 
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="11,0,0,0" Grid.Column="1"/>
-        <Button x:Name="buttonAccount" Content="Button" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" Height="75" Width="235" FontSize="30"/>
+        <Button x:Name="buttonAccount" Content="Button" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" Height="75" Width="235" FontSize="30" Click="buttonAccount_Click"/>
         <Button x:Name="buttonResults" Content="Результаты" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,0,0,125" VerticalAlignment="Bottom" Height="75" Width="235" FontSize="30" Click="ClickButtonResults"/>
 
     </Grid>

@@ -47,25 +47,15 @@ namespace Main_Project
 
             dBLearningMath.OpenConnection();
 
-            SqlCommand login_check_command = new SqlCommand(login_check_query, dBLearningMath.GetConnection());
             SqlCommand stats_command = new SqlCommand(stats_query, dBLearningMath.GetConnection());
 
-            if (Convert.ToInt32(login_check_command.ExecuteScalar()) == 1)
-            {
-                stats_command.ExecuteNonQuery();
-                SqlDataAdapter statsDataAdapter = new SqlDataAdapter(stats_command);
-                DataTable dataTable = new DataTable("Статистика");
-                statsDataAdapter.Fill(dataTable);
-                resultsDataGrid.ItemsSource = dataTable.DefaultView;
-                //resultsDataGrid.Columns.Width = 50;
-            }
+            stats_command.ExecuteNonQuery();
+            SqlDataAdapter statsDataAdapter = new SqlDataAdapter(stats_command);
+            DataTable dataTable = new DataTable("Статистика");
+            statsDataAdapter.Fill(dataTable);
+            resultsDataGrid.ItemsSource = dataTable.DefaultView;
 
-            else
-            {
-                MessageBox.Show("У вас пока нет результатов!");                
-            }
-
-           dBLearningMath.CloseConnection();
+            dBLearningMath.CloseConnection();
         }
     }
 }

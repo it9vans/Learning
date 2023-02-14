@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="600"
       Loaded="OnLoad"
       Title="LoginPage"
-      Background="White">
+      >
 
     <Grid>
 

@@ -55,6 +55,7 @@ namespace Main_Project
             {
                 commandInsert.ExecuteScalar();
                 Account.login = login;
+                Account.acc_type = "student";
                 Application.Current.MainWindow.Hide();
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();

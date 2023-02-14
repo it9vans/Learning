@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Main_Project"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="AutorizationWindow" Height="450" Width="600"
+        Title="Авторизация" Height="450" Width="600"
         WindowStartupLocation = "CenterScreen">
 
     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>

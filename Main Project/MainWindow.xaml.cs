@@ -21,5 +21,10 @@ namespace Main_Project
         {
             MainFrame.Content = new ResultsPage();
         }
+
+        private void buttonAccount_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Этот раздел находится в разработке!");
+        }
     }
 }
