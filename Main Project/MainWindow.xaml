@@ -17,8 +17,9 @@
         <Image Source="Images/Learning Math logo1.png" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="1.27,0.665" Height="154" Width="152" Margin="0,30,0,0"/>
 
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="11,0,0,0" Grid.Column="1"/>
-        <Button x:Name="buttonAccount" Content="Button" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" Height="75" Width="235" FontSize="30" Click="buttonAccount_Click"/>
+        <Button x:Name="buttonAccount" Content="Button" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" Height="75" Width="235" FontSize="30" Click="ClickButtonAccount"/>
         <Button x:Name="buttonResults" Content="Результаты" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,0,0,125" VerticalAlignment="Bottom" Height="75" Width="235" FontSize="30" Click="ClickButtonResults"/>
+        <Button x:Name="buttonQueries" Content="Запросы" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,436,0,220" VerticalAlignment="Bottom" Height="75" Width="236" FontSize="30" Click="ClickButtonQueries"/>
 
     </Grid>
 </Window>

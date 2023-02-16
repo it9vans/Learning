@@ -30,11 +30,6 @@ namespace Main_Project
             ResultsUpdate();
         }
 
-        private void ClickBackButton(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new MenuPage());
-        }
-
         public void ResultsUpdate()
         {
             string login_check_query = $"SELECT COUNT(login) FROM users WHERE login = '{Account.login}'";
@@ -56,6 +51,11 @@ namespace Main_Project
             resultsDataGrid.ItemsSource = dataTable.DefaultView;
 
             dBLearningMath.CloseConnection();
+        }
+
+        private void ClickButtonBack(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuPage());
         }
     }
 }

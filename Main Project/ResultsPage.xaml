@@ -7,10 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="1050"
       Title="ResultsPage" Height="750" Width="1050"
-      Background="White">
+      >
 
     <Grid>
-        <Button x:Name="ButtonBack" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Назад" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" Width="110" Height="55" FontSize="30" RenderTransformOrigin="0.539,0.121" Foreground="White" BorderBrush="{x:Null}" FontFamily="Segoe UI" Click="ClickBackButton"/>
+        <Button x:Name="ButtonBack" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Назад" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" Width="110" Height="55" FontSize="30" RenderTransformOrigin="0.539,0.121" Foreground="White" BorderBrush="{x:Null}" FontFamily="Segoe UI" Click="ClickButtonBack"/>
         <DataGrid x:Name="resultsDataGrid" Margin="132,146,130,150" FontFamily="Segoe UI" FontSize="20" IsEnabled="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
     </Grid>
 </Page>

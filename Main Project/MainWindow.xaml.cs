@@ -22,7 +22,12 @@ namespace Main_Project
             MainFrame.Content = new ResultsPage();
         }
 
-        private void buttonAccount_Click(object sender, RoutedEventArgs e)
+        private void ClickButtonQueries(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new QueriesPage();
+        }
+
+        private void ClickButtonAccount(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Этот раздел находится в разработке!");
         }
