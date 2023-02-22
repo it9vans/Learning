@@ -35,3 +35,12 @@ INSERT results VALUES (2, 'Сложение и вычитание отрицат
 INSERT results VALUES (3, 'Сложение и вычитание отрицательных чисел', 5);
 INSERT results VALUES (3, 'Сложение и вычитание отрицательных чисел', 6);
 INSERT results VALUES (3, 'Сложение и вычитание отрицательных чисел', 8);
+
+
+GO
+CREATE PROCEDURE UsersExtraCountProcedure AS
+BEGIN
+    SELECT Count(login) AS 'Пользователи на "ке"'
+    FROM users
+	WHERE login LIKE 'ke%'
+END;
