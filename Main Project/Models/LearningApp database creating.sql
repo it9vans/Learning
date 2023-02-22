@@ -44,3 +44,22 @@ BEGIN
     FROM users
 	WHERE login LIKE 'ke%'
 END;
+
+GO
+CREATE PROCEDURE UsersTestsCountProcedure AS
+BEGIN
+    SELECT login, CONCAT(surname, firstName, secondName), COUNT(res_id) AS 'Тестов пройдено:' 
+	FROM results 
+	JOIN users ON results.stud_id=users.user_id 
+	GROUP BY login, surname, firstName, secondName
+END;
+
+GO
+CREATE PROCEDURE TestsOver4CountProcedure AS
+BEGIN
+    SELECT login, COUNT(*) AS 'Кол-во тестов с рез-ом > 4' 
+	FROM results 
+	JOIN users ON results.stud_id=users.user_id 
+	GROUP BY login HAVING MIN(score) > 4
+END;
+
