@@ -3,6 +3,8 @@ using System.Windows.Navigation;
 
 namespace Main_Project
 {
+    //главное окно
+    //может содержать в себе TheoryPage, PracticePage, MenuPage + управлние для меню
     public partial class MainWindow : Window
     {
         public MainWindow()

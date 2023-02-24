@@ -36,23 +36,30 @@ namespace Main_Project
 
         private void ClickButtonLogin(object sender, RoutedEventArgs e)
         {
+            //считываем введеный логин и пароль
             string login = textbox_login.Text;
             string password = PasswordBoxMain.Password.ToString();
+
+            //запросы для проверки логина/пароля + запрос на получение типа аккаунта
             string loginQuery = $"select count(login) from users where login = '{login}' and passw = '{password}';";
             string accTypeQuery = $"select acc_type from users where login = '{login}';";
 
-            dblearningmath.Notify += CommonMethods.GetConnectionStatus;
+            //определяем метод для события(ConnectionNotify), срабатывающего при подключении к бд
+            dblearningmath.ConnectionNotify += CommonMethods.GetConnectionStatus;
 
             dblearningmath.OpenConnection();
             SqlCommand command = new SqlCommand(loginQuery, dblearningmath.GetConnection());
 
+            //проверяем на совпадение логина/пароля, если есть совпадение - входим в аккаунт
             if (Convert.ToInt32(command.ExecuteScalar()) != 1)
                 MessageBox.Show("Неправильный логин/пароль. Попробуйте снова.");
             else
             {
                 command.CommandText = accTypeQuery;
                 Account.Login = login;
-                Account.Acc_type = Convert.ToString(command.ExecuteScalar());
+                Account.Acc_type = Convert.ToString(command.ExecuteScalar()); //считваем из бд тип аккаунта
+
+                //переход на главное окно
                 Application.Current.MainWindow.Hide();
                 MainWindow mainWindow= new MainWindow();
                 mainWindow.Show();

@@ -29,6 +29,6 @@
         </Button>
         <Button x:Name="ButtonBack" Style ="{StaticResource MainButtonTemplate}" Grid.ColumnSpan="2" Content="Назад" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" Width="110" Height="55" Click="ClickBackButton" FontSize="30" RenderTransformOrigin="0.539,0.121" Foreground="White" BorderBrush="{x:Null}" FontFamily="Segoe UI"/>
         <Label x:Name="messageLabel" Content="Верно!" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Foreground="#FF3CE026" FontSize="48" Grid.Column="1" Visibility="Hidden"/>
-        <TextBlock x:Name="taskNumberTextBlock" Grid.Column="1" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,144,0,0" TextWrapping="Wrap" Text="Задание 0/10" VerticalAlignment="Top" FontSize="35" FontFamily="Segoe UI" RenderTransformOrigin="0.566,-0.499" Width="286"/>
+        <TextBlock x:Name="currentTaskNumberTextBlock" Grid.Column="1" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,144,0,0" TextWrapping="Wrap" Text="Задание 0/10" VerticalAlignment="Top" FontSize="35" FontFamily="Segoe UI" RenderTransformOrigin="0.566,-0.499" Width="286"/>
     </Grid>
 </Page>

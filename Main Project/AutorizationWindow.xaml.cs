@@ -14,9 +14,8 @@ using System.Windows.Shapes;
 
 namespace Main_Project
 {
-    /// <summary>
-    /// Логика взаимодействия для AutorizationWindow.xaml
-    /// </summary>
+    //окно авторизации
+    //может содержатьб в себе LoginPage и RegistrationPage
     public partial class AutorizationWindow : Window
     {
         public AutorizationWindow()

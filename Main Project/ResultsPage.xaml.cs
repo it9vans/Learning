@@ -33,23 +33,29 @@ namespace Main_Project
         public void ResultsUpdate()
         {
             string login_check_query = $"SELECT COUNT(login) FROM users WHERE login = '{Account.Login}'";
-            string stats_query;
+            string resultsQuery;
             if (Account.Acc_type == "student")
             {
-                stats_query = $"SELECT res_id AS '№', theme AS 'Тема', score AS 'Результат' FROM results WHERE stud_id = (SELECT user_id FROM users WHERE login = '{Account.Login}')";
+                resultsQuery = $"SELECT res_id AS '№', theme AS 'Тема', score AS 'Результат' FROM results WHERE stud_id = (SELECT user_id FROM users WHERE login = '{Account.Login}')";
             }
-            else stats_query = $"SELECT res_id AS '№', login as 'Логин', theme AS 'Тема', score AS 'Результат' FROM results JOIN users ON results.stud_id=users.user_id;";
+            else resultsQuery = $"SELECT res_id AS '№', login as 'Логин', theme AS 'Тема', score AS 'Результат' FROM results JOIN users ON results.stud_id=users.user_id;";
 
-            dblearningmath.Notify += CommonMethods.GetConnectionStatus;
+            //определяем метод для события(ConnectionNotify), срабатывающего при подключении к бд
+            dblearningmath.ConnectionNotify += CommonMethods.GetConnectionStatus;
 
             dblearningmath.OpenConnection();
 
-            SqlCommand stats_command = new SqlCommand(stats_query, dblearningmath.GetConnection());
+            SqlCommand resultsCommand = new SqlCommand(resultsQuery, dblearningmath.GetConnection());
 
-            stats_command.ExecuteNonQuery();
-            SqlDataAdapter statsDataAdapter = new SqlDataAdapter(stats_command);
-            DataTable dataTable = new DataTable("Статистика");
-            statsDataAdapter.Fill(dataTable);
+            
+            //resultsCommand.ExecuteNonQuery();
+            //выполняем команду через DataAdapter
+            SqlDataAdapter resultsDataAdapter = new SqlDataAdapter(resultsCommand);
+            //создаем таблицу результатов
+            DataTable dataTable = new DataTable("Результаты");
+            //заполняем таблицу
+            resultsDataAdapter.Fill(dataTable);
+            //делаем таблицу видимой (здесь не имеет смысла, тк таблицу видна сразу)
             resultsDataGrid.ItemsSource = dataTable.DefaultView;
 
             dblearningmath.CloseConnection();

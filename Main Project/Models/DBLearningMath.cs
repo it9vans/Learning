@@ -9,26 +9,30 @@ namespace Main_Project
 {
     internal class DBLearningMath
     {
-        static private string dbName;
+        //имя сервера, меняется в зависмости от машины, на которой запускается программа
+        static private string serverName;
+        //делегат для события, срабатывающего при подклюении к бд
         public delegate void ConnectionHandler(string message);
-        public event ConnectionHandler Notify;
+        //событие для отправки состояния подключения
+        public event ConnectionHandler ConnectionNotify;
 
+        //инициализируем имя сервера
         static DBLearningMath()
         {
             if(Environment.MachineName == "IVAN")
-                dbName = @"IVAN\SQLEXPRESS01";
+                serverName = @"IVAN\SQLEXPRESS01";
             else
-                dbName= @"I9-PC\SQLEXPRESS";
+                serverName= @"I9-PC\SQLEXPRESS";
         }
 
-        SqlConnection sqlConnection = new SqlConnection($@"Server = {dbName}; Database = LearningMath; Trusted_Connection = True;");
+        SqlConnection sqlConnection = new SqlConnection($@"Server = {serverName}; Database = LearningMath; Trusted_Connection = True;");
 
         public void OpenConnection()
         {
             if(sqlConnection.State == System.Data.ConnectionState.Closed)
             {
                 sqlConnection.Open();
-                Notify.Invoke("Connection is opened");
+                ConnectionNotify.Invoke("Connection is opened");
             }
         }
 
@@ -37,7 +41,7 @@ namespace Main_Project
             if (sqlConnection.State == System.Data.ConnectionState.Open)
             {
                 sqlConnection.Close();
-                Notify.Invoke("Connection is closed");
+                ConnectionNotify.Invoke("Connection is closed");
             }
         }
 

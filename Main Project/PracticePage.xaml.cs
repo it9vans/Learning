@@ -18,9 +18,9 @@ namespace Main_Project
 {
     public partial class PracticePage : Page
     {
-        readonly dblearningmath dblearningmath = new dblearningmath();
+        readonly DBLearningMath dblearningmath = new DBLearningMath();
 
-        private byte taskNumber = 0, completedTaskNumber = 0;
+        private byte currentTaskNumber = 0, completedcurrentTaskNumber = 0;
         private short result;
         bool isTestActive= false;
 
@@ -119,16 +119,17 @@ namespace Main_Project
             NavigationService.Navigate(new MenuPage());
         }
 
+        //кнопка Проверить
         private void ClickCheckButton(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (taskNumber < 10)
+                if (currentTaskNumber < 10)
                 {
                     if (Convert.ToInt32(resultTextBox.Text) == result)
                     {
                         UpdateMessageBox("Верно!", true);
-                        completedTaskNumber++;
+                        completedcurrentTaskNumber++;
                         UpdateIsEnabledOfTextBoxResultAndButtonCheck(false);
                     }
                     else
@@ -162,10 +163,10 @@ namespace Main_Project
                 newExerciseButton.Content = "Новый пример";
             }
             UpdateIsEnabledOfTextBoxResultAndButtonCheck(true);
-            if (taskNumber < 10)
+            if (currentTaskNumber < 10)
             {
                 resultTextBox.Text = ""; messageLabel.Visibility = Visibility.Collapsed;
-                UpdateTaskNumberTextBlock();
+                UpdateCurrentTaskNumberTextBlock();
                 exerciseTextBox.Text = CreateExercise();
             }
             else
@@ -174,15 +175,16 @@ namespace Main_Project
             }
         }
 
-        private void UpdateTaskNumberTextBlock()
+        private void UpdateCurrentTaskNumberTextBlock()
         {
-            if (taskNumber < 10)
+            if (currentTaskNumber < 10)
             {
-                taskNumber++;
-                taskNumberTextBlock.Text = $"Задание {taskNumber}/10";
+                currentTaskNumber++;
+                currentTaskNumberTextBlock.Text = $"Задание {currentTaskNumber}/10";
             }
         }
 
+        //метод, определяющий можно ли менять результат и нажать кнопку Проверить
         private void UpdateIsEnabledOfTextBoxResultAndButtonCheck(bool isEnabled)
         {
             if(isEnabled)
@@ -197,25 +199,27 @@ namespace Main_Project
             }
         }
 
+        //завершение теста
         private void EndTest()
         {
             isTestActive = false;
-            MessageBox.Show($"Вы завершили тест, выполнив заданий: {completedTaskNumber}");
-            taskNumber = 0;
-            taskNumberTextBlock.Text = $"Задание 0/10";
+            MessageBox.Show($"Вы завершили тест, выполнив заданий: {completedcurrentTaskNumber}");
+            currentTaskNumber = 0;
+            currentTaskNumberTextBlock.Text = $"Задание 0/10";
             newExerciseButton.Content = "Начать тест";
             exerciseTextBox.Text = "";
 
-            string createResultQuery = $"INSERT results VALUES ((SELECT user_id from users WHERE login='{Account.Login}'), 'Сложение и вычитание отрицательных чисел', {completedTaskNumber})";
+            string createResultQuery = $"INSERT results VALUES ((SELECT user_id from users WHERE login='{Account.Login}'), 'Сложение и вычитание отрицательных чисел', {completedcurrentTaskNumber})";
             
             dblearningmath.OpenConnection();
             SqlCommand commandResultInsert = new SqlCommand(createResultQuery, dblearningmath.GetConnection());
             commandResultInsert.ExecuteScalar();
             dblearningmath.CloseConnection();
 
-            completedTaskNumber = 0;
+            completedcurrentTaskNumber = 0;
         }
 
+        //обновлние цвета и текста сообщения
         private void UpdateMessageBox(string message, bool messageType)
         {
             if(messageType)

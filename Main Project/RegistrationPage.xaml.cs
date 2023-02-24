@@ -18,7 +18,7 @@ namespace Main_Project
 {
     public partial class RegistrationPage : Page
     {
-        readonly dblearningmath dblearningmath = new dblearningmath();
+        readonly DBLearningMath dblearningmath = new DBLearningMath();
 
         public RegistrationPage()
         {
@@ -32,16 +32,20 @@ namespace Main_Project
 
         private void ClickButtonRegister(object sender, RoutedEventArgs e)
         {
+            //ситываем введенные пользователем данные
             string login = textbox_login.Text;
             string password = textbox_password.Text;
             string passwordcheck = textbox_passwordcheck.Text;
             string surname = textbox_surname.Text;
             string firstName = textbox_firstName.Text;
             string secondName = textbox_secondName.Text;
+
+            //запрос для проверки наличия такого логина + запрос на добавление нового пользователя
             string queryСheck = $"select count(login) from users where login = '{login}';";
             string queryInsert = $"INSERT users VALUES ('{login}', '{password}', 'student', '{surname}', '{firstName}', '{secondName}');";
-            
-            dblearningmath.Notify += CommonMethods.GetConnectionStatus;
+
+            //определяем метод для события(ConnectionNotify), срабатывающего при подключении к бд
+            dblearningmath.ConnectionNotify += CommonMethods.GetConnectionStatus;
 
             dblearningmath.OpenConnection();
             SqlCommand command = new SqlCommand(queryСheck, dblearningmath.GetConnection());
@@ -54,6 +58,7 @@ namespace Main_Project
             }
             else
             {
+                //после успешной регистрации входим в аккаунт и программу
                 command.CommandText = queryInsert; 
                 command.ExecuteScalar();
                 Account.Login = login;

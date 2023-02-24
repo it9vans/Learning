@@ -17,9 +17,7 @@ using System.Windows.Shapes;
 
 namespace Main_Project
 {
-    /// <summary>
-    /// Логика взаимодействия для QueriesPage.xaml
-    /// </summary>
+    //страница для практы по доп запросам для бд, показывает работу с DataGrid
     public partial class QueriesPage : Page
     {
         DBLearningMath dblearningmath = new DBLearningMath();
@@ -46,12 +44,12 @@ namespace Main_Project
 
                 dblearningmath.OpenConnection();
 
-                SqlCommand stats_command = new SqlCommand(query, dblearningmath.GetConnection());
+                SqlCommand resultsCommand = new SqlCommand(query, dblearningmath.GetConnection());
 
-                stats_command.ExecuteNonQuery();
-                SqlDataAdapter statsDataAdapter = new SqlDataAdapter(stats_command);
-                DataTable dataTable = new DataTable("Статистика");
-                statsDataAdapter.Fill(dataTable);
+                resultsCommand.ExecuteNonQuery();
+                SqlDataAdapter resultsDataAdapter = new SqlDataAdapter(resultsCommand);
+                DataTable dataTable = new DataTable("Результаты");
+                resultsDataAdapter.Fill(dataTable);
                 queriesDataGrid.ItemsSource = dataTable.DefaultView;
 
                 dblearningmath.CloseConnection();
