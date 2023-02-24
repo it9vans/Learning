@@ -18,7 +18,7 @@ namespace Main_Project
 {
     public partial class RegistrationPage : Page
     {
-        DBLearningMath dBlearningmath = new DBLearningMath();
+        readonly dblearningmath dblearningmath = new dblearningmath();
 
         public RegistrationPage()
         {
@@ -40,12 +40,13 @@ namespace Main_Project
             string secondName = textbox_secondName.Text;
             string queryСheck = $"select count(login) from users where login = '{login}';";
             string queryInsert = $"INSERT users VALUES ('{login}', '{password}', 'student', '{surname}', '{firstName}', '{secondName}');";
+            
+            dblearningmath.Notify += CommonMethods.GetConnectionStatus;
 
-            dBlearningmath.OpenConnection();
-            SqlCommand commandCheck = new SqlCommand(queryСheck, dBlearningmath.GetConnection());
-            SqlCommand commandInsert = new SqlCommand(queryInsert, dBlearningmath.GetConnection());
+            dblearningmath.OpenConnection();
+            SqlCommand command = new SqlCommand(queryСheck, dblearningmath.GetConnection());
 
-            if (Convert.ToInt32(commandCheck.ExecuteScalar()) > 0)
+            if (Convert.ToInt32(command.ExecuteScalar()) > 0)
                 MessageBox.Show("Логин уже используется!");
             else if(password != passwordcheck)
             {
@@ -53,14 +54,15 @@ namespace Main_Project
             }
             else
             {
-                commandInsert.ExecuteScalar();
-                Account.login = login;
-                Account.acc_type = "student";
+                command.CommandText = queryInsert; 
+                command.ExecuteScalar();
+                Account.Login = login;
+                Account.Acc_type = "student";
                 Application.Current.MainWindow.Hide();
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
             }
-            dBlearningmath.CloseConnection();
+            dblearningmath.CloseConnection();
         }
     }
 }

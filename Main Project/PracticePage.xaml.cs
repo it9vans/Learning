@@ -18,7 +18,7 @@ namespace Main_Project
 {
     public partial class PracticePage : Page
     {
-        DBLearningMath dBlearningmath = new DBLearningMath();
+        readonly dblearningmath dblearningmath = new dblearningmath();
 
         private byte taskNumber = 0, completedTaskNumber = 0;
         private short result;
@@ -206,11 +206,12 @@ namespace Main_Project
             newExerciseButton.Content = "Начать тест";
             exerciseTextBox.Text = "";
 
-            string createResultQuery = $"INSERT results VALUES ((SELECT user_id from users WHERE login='{Account.login}'), 'Сложение и вычитание отрицательных чисел', {completedTaskNumber})";
-            dBlearningmath.OpenConnection();
-            SqlCommand commandResultInsert = new SqlCommand(createResultQuery, dBlearningmath.GetConnection());
+            string createResultQuery = $"INSERT results VALUES ((SELECT user_id from users WHERE login='{Account.Login}'), 'Сложение и вычитание отрицательных чисел', {completedTaskNumber})";
+            
+            dblearningmath.OpenConnection();
+            SqlCommand commandResultInsert = new SqlCommand(createResultQuery, dblearningmath.GetConnection());
             commandResultInsert.ExecuteScalar();
-            dBlearningmath.CloseConnection();
+            dblearningmath.CloseConnection();
 
             completedTaskNumber = 0;
         }

@@ -9,7 +9,7 @@ namespace Main_Project
         {
             InitializeComponent();
             MainFrame.Content = new MenuPage();
-            buttonAccount.Content = Account.login;
+            buttonAccount.Content = Account.Login;
         }
 
         private void MainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)

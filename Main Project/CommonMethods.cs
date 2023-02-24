@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Main_Project
 {
-    internal class Account
+    internal static class CommonMethods
     {
-        public static string Login { get; set; }
-        public static string Acc_type { get; set; }
+        public static void GetConnectionStatus(string message) => Debug.WriteLine(message);
+
     }
 }

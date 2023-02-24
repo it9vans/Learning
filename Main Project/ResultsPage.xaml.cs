@@ -22,7 +22,7 @@ namespace Main_Project
     /// </summary>
     public partial class ResultsPage : Page
     {
-        DBLearningMath dBLearningMath = new DBLearningMath();
+        DBLearningMath dblearningmath = new DBLearningMath();
 
         public ResultsPage()
         {
@@ -32,17 +32,19 @@ namespace Main_Project
 
         public void ResultsUpdate()
         {
-            string login_check_query = $"SELECT COUNT(login) FROM users WHERE login = '{Account.login}'";
+            string login_check_query = $"SELECT COUNT(login) FROM users WHERE login = '{Account.Login}'";
             string stats_query;
-            if (Account.acc_type == "student")
+            if (Account.Acc_type == "student")
             {
-                stats_query = $"SELECT res_id AS '№', theme AS 'Тема', score AS 'Результат' FROM results WHERE stud_id = (SELECT user_id FROM users WHERE login = '{Account.login}')";
+                stats_query = $"SELECT res_id AS '№', theme AS 'Тема', score AS 'Результат' FROM results WHERE stud_id = (SELECT user_id FROM users WHERE login = '{Account.Login}')";
             }
             else stats_query = $"SELECT res_id AS '№', login as 'Логин', theme AS 'Тема', score AS 'Результат' FROM results JOIN users ON results.stud_id=users.user_id;";
 
-            dBLearningMath.OpenConnection();
+            dblearningmath.Notify += CommonMethods.GetConnectionStatus;
 
-            SqlCommand stats_command = new SqlCommand(stats_query, dBLearningMath.GetConnection());
+            dblearningmath.OpenConnection();
+
+            SqlCommand stats_command = new SqlCommand(stats_query, dblearningmath.GetConnection());
 
             stats_command.ExecuteNonQuery();
             SqlDataAdapter statsDataAdapter = new SqlDataAdapter(stats_command);
@@ -50,7 +52,7 @@ namespace Main_Project
             statsDataAdapter.Fill(dataTable);
             resultsDataGrid.ItemsSource = dataTable.DefaultView;
 
-            dBLearningMath.CloseConnection();
+            dblearningmath.CloseConnection();
         }
 
         private void ClickButtonBack(object sender, RoutedEventArgs e)

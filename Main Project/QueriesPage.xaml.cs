@@ -22,7 +22,7 @@ namespace Main_Project
     /// </summary>
     public partial class QueriesPage : Page
     {
-        DBLearningMath dBLearningMath = new DBLearningMath();
+        DBLearningMath dblearningmath = new DBLearningMath();
 
         public QueriesPage()
         {
@@ -44,9 +44,9 @@ namespace Main_Project
 
                 string query = textboxQuery.Text;
 
-                dBLearningMath.OpenConnection();
+                dblearningmath.OpenConnection();
 
-                SqlCommand stats_command = new SqlCommand(query, dBLearningMath.GetConnection());
+                SqlCommand stats_command = new SqlCommand(query, dblearningmath.GetConnection());
 
                 stats_command.ExecuteNonQuery();
                 SqlDataAdapter statsDataAdapter = new SqlDataAdapter(stats_command);
@@ -54,7 +54,7 @@ namespace Main_Project
                 statsDataAdapter.Fill(dataTable);
                 queriesDataGrid.ItemsSource = dataTable.DefaultView;
 
-                dBLearningMath.CloseConnection();
+                dblearningmath.CloseConnection();
 
             }
         }
