@@ -13,12 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Main_Project
 {
     public partial class LoginPage : Page
     {
         DBLearningMath dBlearningmath = new DBLearningMath();
+        
 
         public LoginPage()
         {
@@ -39,6 +41,7 @@ namespace Main_Project
             string loginQuery = $"select count(login) from users where login = '{login}' and passw = '{password}';";
             string accTypeQuery = $"select acc_type from users where login = '{login}';";
 
+            dBlearningmath.Notify += GetConnectionStatus;
 
             dBlearningmath.OpenConnection();
             SqlCommand command = new SqlCommand(loginQuery, dBlearningmath.GetConnection());
@@ -56,5 +59,7 @@ namespace Main_Project
             }
             dBlearningmath.CloseConnection();
         }
+
+        private void GetConnectionStatus(string message) => Debug.WriteLine(message);
     }
 }

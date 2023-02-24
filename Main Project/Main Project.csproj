@@ -99,7 +99,7 @@
     <Compile Include="AutorizationWindow.xaml.cs">
       <DependentUpon>AutorizationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DBLearningMath.cs" />
+    <Compile Include="Models\DBLearningMath.cs" />
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>

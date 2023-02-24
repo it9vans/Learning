@@ -10,6 +10,8 @@ namespace Main_Project
     internal class DBLearningMath
     {
         static private string dbName;
+        public delegate void ConnectionHandler(string message);
+        public event ConnectionHandler Notify;
 
         static DBLearningMath()
         {
@@ -26,6 +28,7 @@ namespace Main_Project
             if(sqlConnection.State == System.Data.ConnectionState.Closed)
             {
                 sqlConnection.Open();
+                Notify.Invoke("Connection is opened");
             }
         }
 
@@ -34,6 +37,7 @@ namespace Main_Project
             if (sqlConnection.State == System.Data.ConnectionState.Open)
             {
                 sqlConnection.Close();
+                Notify.Invoke("Connection is closed");
             }
         }
 
