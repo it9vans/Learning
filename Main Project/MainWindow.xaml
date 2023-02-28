@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Main_Project"
         mc:Ignorable="d"
         ResizeMode="CanResize"
-        Title="Сложение и вычитание отрицательных чисел" Height="750" MinHeight="650" Width="1350" MinWidth="900"
+        Title="Сложение и вычитание отрицательных чисел" Height="750" MinHeight="710" Width="1350" MinWidth="900"
         WindowStartupLocation = "CenterScreen">
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
@@ -19,7 +19,7 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="11,0,0,0" Grid.Column="1"/>
         <Button x:Name="buttonAccount" Content="Button" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,0,0,30" VerticalAlignment="Bottom" Height="75" Width="235" FontSize="30" Click="ClickButtonAccount"/>
         <Button x:Name="buttonResults" Content="Результаты" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,0,0,125" VerticalAlignment="Bottom" Height="75" Width="235" FontSize="30" Click="ClickButtonResults"/>
-        <Button x:Name="buttonQueries" Content="Запросы" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,436,0,220" VerticalAlignment="Bottom" Height="75" Width="236" FontSize="30" Click="ClickButtonQueries"/>
+        <!--<Button x:Name="buttonQueries" Content="Запросы" Style="{StaticResource TransparentButtonTemplate}" HorizontalAlignment="Center" Margin="0,436,0,220" VerticalAlignment="Bottom" Height="75" Width="236" FontSize="30" Click="ClickButtonQueries"/>-->
 
     </Grid>
 </Window>

@@ -28,6 +28,11 @@ namespace Main_Project
         {
             InitializeComponent();
             newExerciseButton.Content = "Начать тест";
+            if(!Account.isTestMessageViewed)
+            {
+                MessageBox.Show("Внимание! На каждый пример у вас будет только 1 попытка. При нажатии кнопки \"Новый Пример\" будет сгенерирован новый пример, а прошлое упражнение закончится неудачей. То же самое ждет вас при выходе со страницы решения. Нажмите \"Ок\", чтобы продолжить.");
+                Account.isTestMessageViewed = true;
+            }
         }
 
         private void TextBoxExercise_TextChanged(object sender, TextChangedEventArgs e)
@@ -110,7 +115,12 @@ namespace Main_Project
                         return $"{sl_first} + ({sl_second}) + {sl_third} =";
                     else if (sl_second > 0 && sl_third > 0)
                         return $"{sl_first} + {sl_second} + {sl_third} =";
-                    else return "Попробуйте снова!";
+                    else
+                    {
+                        //при ошибке генерации счетчик заданий не отберет попытку решения
+                        currentTaskNumber--;
+                        return "Попробуйте снова!";
+                    }
                 }           
         }
 
@@ -211,6 +221,8 @@ namespace Main_Project
 
             string createResultQuery = $"INSERT results VALUES ((SELECT user_id from users WHERE login='{Account.Login}'), 'Сложение и вычитание отрицательных чисел', {completedcurrentTaskNumber})";
             
+            dblearningmath.ConnectionNotify += CommonMethods.GetConnectionStatus;
+
             dblearningmath.OpenConnection();
             SqlCommand commandResultInsert = new SqlCommand(createResultQuery, dblearningmath.GetConnection());
             commandResultInsert.ExecuteScalar();

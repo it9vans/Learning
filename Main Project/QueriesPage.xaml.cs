@@ -42,6 +42,8 @@ namespace Main_Project
 
                 string query = textboxQuery.Text;
 
+                dblearningmath.ConnectionNotify += CommonMethods.GetConnectionStatus;
+
                 dblearningmath.OpenConnection();
 
                 SqlCommand resultsCommand = new SqlCommand(query, dblearningmath.GetConnection());

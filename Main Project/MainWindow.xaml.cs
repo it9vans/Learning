@@ -24,10 +24,10 @@ namespace Main_Project
             MainFrame.Content = new ResultsPage();
         }
 
-        private void ClickButtonQueries(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new QueriesPage();
-        }
+        //private void ClickButtonQueries(object sender, RoutedEventArgs e)
+        //{
+        //    MainFrame.Content = new QueriesPage();
+        //}
 
         private void ClickButtonAccount(object sender, RoutedEventArgs e)
         {

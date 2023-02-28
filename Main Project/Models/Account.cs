@@ -10,5 +10,6 @@ namespace Main_Project
     {
         public static string Login { get; set; }
         public static string Acc_type { get; set; }
+        public static bool isTestMessageViewed = false;
     }
 }
