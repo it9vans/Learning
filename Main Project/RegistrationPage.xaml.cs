@@ -56,6 +56,10 @@ namespace Main_Project
             {
                 MessageBox.Show("Пароли не совпадают");
             }
+            else if(textbox_login.Text == "" | textbox_password.Text == "" | textbox_passwordcheck.Text == "" | textbox_firstName.Text == "" | textbox_secondName.Text == "" | textbox_surname.Text == "")
+            {
+                MessageBox.Show("Заполнены не все поля!");
+            }
             else
             {
                 //после успешной регистрации входим в аккаунт и программу

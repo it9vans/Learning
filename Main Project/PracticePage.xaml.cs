@@ -30,7 +30,7 @@ namespace Main_Project
             newExerciseButton.Content = "Начать тест";
             if(!Account.isTestMessageViewed)
             {
-                MessageBox.Show("Внимание! На каждый пример у вас будет только 1 попытка. При нажатии кнопки \"Новый Пример\" будет сгенерирован новый пример, а прошлое упражнение закончится неудачей. То же самое ждет вас при выходе со страницы решения. Нажмите \"Ок\", чтобы продолжить.");
+                MessageBox.Show("Внимание! На каждый пример у вас будет только 1 попытка. Чтобы завершить пример, введите получившийся результат в поле ввода после знака \"=\" и нажмите кнопку \"Проверить\". При нажатии кнопки \"Новый Пример\" будет сгенерирован новый пример, а прошлое упражнение закончится неудачей. То же самое ждет вас при выходе со страницы решения. Нажмите \"Ок\", чтобы продолжить.");
                 Account.isTestMessageViewed = true;
             }
         }
@@ -155,7 +155,7 @@ namespace Main_Project
             }
             catch
             {
-                UpdateMessageBox("Возникла ошибка при вводе данных!", false);
+                MessageBox.Show("Возникла ошибка при генерации примера, пожалуйста, нажмите кнопку \"Новый пример\" еще раз. Не переживайте, эта попытка не засчитывается.");
             }
 
             if (resultTextBox.Text == "")
@@ -215,7 +215,7 @@ namespace Main_Project
             isTestActive = false;
             MessageBox.Show($"Вы завершили тест, выполнив заданий: {completedcurrentTaskNumber}");
             currentTaskNumber = 0;
-            currentTaskNumberTextBlock.Text = $"Задание 0/10";
+            currentTaskNumberTextBlock.Text = "";
             newExerciseButton.Content = "Начать тест";
             exerciseTextBox.Text = "";
 

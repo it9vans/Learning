@@ -33,5 +33,10 @@ namespace Main_Project
         {
             MessageBox.Show("Этот раздел находится в разработке!");
         }
+
+        private void ClickButtonMenu(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new MenuPage();
+        }
     }
 }
