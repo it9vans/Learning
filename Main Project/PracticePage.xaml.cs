@@ -171,6 +171,7 @@ namespace Main_Project
             {
                 isTestActive= true;
                 newExerciseButton.Content = "Новый пример";
+                resultTextBox.Visibility = Visibility.Visible;
             }
             UpdateIsEnabledOfTextBoxResultAndButtonCheck(true);
             if (currentTaskNumber < 10)
@@ -214,6 +215,8 @@ namespace Main_Project
         {
             isTestActive = false;
             MessageBox.Show($"Вы завершили тест, выполнив заданий: {completedcurrentTaskNumber}");
+            resultTextBox.Visibility = Visibility.Hidden;
+
             currentTaskNumber = 0;
             currentTaskNumberTextBlock.Text = "";
             newExerciseButton.Content = "Начать тест";
