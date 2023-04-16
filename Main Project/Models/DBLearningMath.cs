@@ -20,7 +20,7 @@ namespace Main_Project
         static DBLearningMath()
         {
             if(Environment.MachineName == "IVAN")
-                serverName = @"IVAN\SQLEXPRESS01";
+                serverName = @"IVAN\SQLEXPRESS";
             else
                 serverName= @"I9-PC\SQLEXPRESS";
         }
