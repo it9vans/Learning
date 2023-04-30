@@ -22,7 +22,7 @@ namespace Main_Project
             if(Environment.MachineName == "DESKTOP-B0RPOQA")
                 serverName = @"DESKTOP-B0RPOQA\SQLEXPRESS";
             else
-                serverName= @"I9-PC\SQLEXPRESS";
+                serverName= @"IVAN\SQLEXPRESS";
         }
 
         SqlConnection sqlConnection = new SqlConnection($@"Server = {serverName}; Database = LearningMath; Trusted_Connection = True;");
