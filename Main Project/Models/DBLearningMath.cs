@@ -19,8 +19,8 @@ namespace Main_Project
         //инициализируем имя сервера
         static DBLearningMath()
         {
-            if(Environment.MachineName == "DESKTOP-B0RPOQA")
-                serverName = @"DESKTOP-B0RPOQA\SQLEXPRESS";
+            if(Environment.MachineName == "NIVAN")
+                serverName = @"NIVAN\SQLEXPRESS";
             else
                 serverName= @"IVAN\SQLEXPRESS";
         }
