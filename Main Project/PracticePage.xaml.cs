@@ -108,11 +108,11 @@ namespace Main_Project
                     result = (short)(sl_first + sl_second + sl_third);
 
                     if (sl_second < 0 && sl_third < 0)
-                        return $"{sl_first} + ({sl_second}) + ({sl_third}) =";
+                        return $"{sl_first} {sl_second} {sl_third} =";
                     else if (sl_second > 0 && sl_third < 0)
-                        return $"{sl_first} + {sl_second} + ({sl_third}) =";
+                        return $"{sl_first} + {sl_second} {sl_third} =";
                     else if (sl_second < 0 && sl_third > 0)
-                        return $"{sl_first} + ({sl_second}) + {sl_third} =";
+                        return $"{sl_first} {sl_second} + {sl_third} =";
                     else if (sl_second > 0 && sl_third > 0)
                         return $"{sl_first} + {sl_second} + {sl_third} =";
                     else
